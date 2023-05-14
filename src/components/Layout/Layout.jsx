@@ -1,17 +1,25 @@
 // import { Home } from '../../pages/Home/Home';
-import imageBg from '../../assets/imageBg/bg.jpeg';
-import NetflixLogoMobil from '../../assets/logo/NetflixLogoMobil.png';
-import { ImgBg, LogoImg } from './St.styled';
+
+import { Background } from './Layout.styled';
+
+import { AppBar } from '../AppBar/AppBar';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 
 export const Layout = () => {
   return (
-    <>
-      <ImgBg src={imageBg} alt="" />
-      <header>
-        <LogoImg src={NetflixLogoMobil} alt="" />
+    <Background>
+      <AppBar />
 
-        <p>logo</p>
-      </header>
-    </>
+      <main>
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
+        <h1>Body</h1>
+      </main>
+      <footer>
+        <h2>Footer</h2>
+      </footer>
+    </Background>
   );
 };

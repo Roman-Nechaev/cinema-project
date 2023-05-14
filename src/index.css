@@ -6,6 +6,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color: aliceblue;
 }
 
 * {
@@ -28,6 +30,7 @@ p {
 
 ul {
   list-style: none;
+
   padding: 0;
 }
 
@@ -35,4 +38,8 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+a {
+  text-decoration: none;
 }
