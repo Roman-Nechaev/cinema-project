@@ -21,9 +21,9 @@ export const AppBar = () => {
             <NavLinks to="/search">Search</NavLinks>
             <NavLinks to="/favorites">Favorites</NavLinks>
           </NavigateList>
-          <div>
+          {/* <div>
             <p>log</p>
-          </div>
+          </div> */}
         </>
       )}
     </Header>
