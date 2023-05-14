@@ -10,12 +10,12 @@ export const Background = styled.div`
       rgba(47, 48, 58, 0.4)
     ),
     url(${bgImage});
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-position: top;
-  background-size: cover;
-  text-align: center;
-  position: relative;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* background-position: top; */
+  /* background-size: cover; */
+  /* text-align: center; */
+  /* position: relative; */
   min-height: 660px;
 `;

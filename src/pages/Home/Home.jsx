@@ -1,26 +1,10 @@
-import { useEffect } from 'react';
-import { fetchPopMovie } from '../../redux/operations';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectMovies } from '../../redux/selector';
+import { MoviesPopularList } from '../../components/MoviesPopularList/MoviesPopularList';
 
 export const Home = () => {
-  const dispatch = useDispatch();
-  const moviesPopular = useSelector(selectMovies);
-
-  console.log(moviesPopular.length);
-
-  useEffect(() => {
-    dispatch(fetchPopMovie(1));
-  }, [dispatch]);
   return (
     <>
-      <h1>Home Page</h1>
-
-      <ul>
-        {moviesPopular.map(i => (
-          <li key={i.id}>{i.original_title}</li>
-        ))}
-      </ul>
+      <h1 style={{ TextAlign: 'center', marginTop: '10px' }}>Popular Movies</h1>
+      <MoviesPopularList />
     </>
   );
 };

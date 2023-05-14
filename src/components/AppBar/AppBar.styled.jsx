@@ -15,7 +15,7 @@ export const ImgBg = styled.img`
 `;
 
 export const Header = styled.header`
-  border: 1px solid #40ff00;
+  /* border: 1px solid #40ff00; */
   display: flex;
   padding: 10px 20px;
   justify-content: space-between;
