@@ -1,9 +1,10 @@
 import { MoviesPopularList } from '../../components/MoviesPopularList/MoviesPopularList';
+import { Tittle } from './Home.styled';
 
 export const Home = () => {
   return (
     <>
-      <h1 style={{ TextAlign: 'center', marginTop: '10px' }}>Popular Movies</h1>
+      <Tittle>Popular Movies</Tittle>
       <MoviesPopularList />
     </>
   );

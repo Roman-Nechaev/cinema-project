@@ -1,15 +1,15 @@
 // import styled from '@emotion/styled';
 import styled from 'styled-components';
 
-import bgImage from '../../assets/imageBg/bg.jpeg';
+import bgImage from '../../assets/imageBg/bg-back.jpeg';
 
 export const Background = styled.div`
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
       to right,
       rgba(47, 48, 58, 0.4),
       rgba(47, 48, 58, 0.4)
     ),
-    url(${bgImage});
+    url(${bgImage}); */
   /* display: flex; */
   /* flex-direction: column; */
   /* align-items: center; */
@@ -18,4 +18,5 @@ export const Background = styled.div`
   /* text-align: center; */
   /* position: relative; */
   min-height: 660px;
+  background-color: #0a192f;
 `;

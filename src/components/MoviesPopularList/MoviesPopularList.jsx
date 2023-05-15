@@ -12,6 +12,7 @@ import {
   Date,
   Details,
   ItemImg,
+  LinkSt,
   ListItem,
   Overview,
   Title,
@@ -20,12 +21,16 @@ import {
   WrapperPagination,
 } from './MoviesPopularList.styled';
 import '../../assets/index.less';
+import { useMedia } from 'react-use';
+import { useLocation } from 'react-router-dom';
 
 export const MoviesPopularList = () => {
+  const isWide = useMedia('(min-width: 768px)');
   const dispatch = useDispatch();
   const moviesPopular = useSelector(selectMovies);
-
+  const location = useLocation();
   const [current, setCurrent] = useState(1);
+
   const onChange = page => {
     setCurrent(page);
   };
@@ -40,14 +45,22 @@ export const MoviesPopularList = () => {
         {moviesPopular.map(
           ({ id, title, poster_path, overview, release_date }) => (
             <ListItem key={id}>
-              <ItemImg src={checkPoster(poster_path)} alt={title} />
-              <Details>
-                <div>
-                  <Title>{title}</Title>
-                  <Date>{release_date}</Date>
-                </div>
-                <Overview>{formattingOverview(overview)}</Overview>
-              </Details>
+              <LinkSt to={`/movies/${id}`} state={{ from: location }}>
+                <ItemImg
+                  loading="lazy"
+                  src={checkPoster(poster_path)}
+                  alt={title}
+                />
+                <Details>
+                  <div>
+                    <Title>{title}</Title>
+                    <Date>{release_date}</Date>
+                  </div>
+                  {!isWide && (
+                    <Overview>{formattingOverview(overview)}</Overview>
+                  )}
+                </Details>
+              </LinkSt>
             </ListItem>
           )
         )}

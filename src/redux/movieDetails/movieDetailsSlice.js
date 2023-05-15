@@ -1,6 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-
-import { fetchPopMovie } from './operations';
+import { fetchDetailsMovie } from './operations';
 
 const pendingReducer = state => {
   state.isLoading = true;
@@ -16,12 +15,12 @@ const fulfilledReducer = state => {
   state.error = null;
 };
 
-const extraActions = [fetchPopMovie];
+const extraActions = [fetchDetailsMovie];
 
 const getActions = type => isAnyOf(...extraActions.map(action => action[type]));
 
 const moviesSlice = createSlice({
-  name: 'movies',
+  name: 'moviesDetails',
   initialState: {
     items: [],
     isLoading: false,
@@ -29,7 +28,7 @@ const moviesSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(fetchPopMovie.fulfilled, (state, action) => {
+      .addCase(fetchDetailsMovie.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.items = action.payload;
@@ -40,4 +39,4 @@ const moviesSlice = createSlice({
       .addMatcher(getActions('fulfilled'), fulfilledReducer),
 });
 
-export const moviesReducer = moviesSlice.reducer;
+export const moviesDetailsReducer = moviesSlice.reducer;

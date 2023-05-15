@@ -9,6 +9,8 @@ export const WrapperMenu = styled.div`
   width: 100%;
   height: 100%;
   background-color: #000000;
+
+  z-index: 10;
 `;
 
 export const MenuClose = styled(HiOutlineX)`

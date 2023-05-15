@@ -7,7 +7,7 @@ import foundFilmsLogo from '../../assets/logo/foundfilms-logo.png';
 
 export const AppBar = () => {
   const isWide = useMedia('(min-width: 768px)');
-  console.log(isWide);
+
   return (
     <Header>
       {!isWide ? (
