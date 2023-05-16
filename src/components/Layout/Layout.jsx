@@ -1,5 +1,3 @@
-// import { Home } from '../../pages/Home/Home';
-
 import { Background } from './Layout.styled';
 
 import { AppBar } from '../AppBar/AppBar';
