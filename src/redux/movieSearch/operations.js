@@ -4,16 +4,17 @@ import axios from 'axios';
 
 import { API_KEY } from '../../KEY/movieKey';
 
-export const fetchDetailsMovie = createAsyncThunk(
-  'movie/fetchDetails',
-  async (movie_Id, thunkAPI) => {
+export const fetchSearchMovie = createAsyncThunk(
+  'movie/fetchSearch',
+  async (search, thunkAPI) => {
     try {
-      const response = await axios.get(`/movie/${movie_Id}`, {
+      const response = await axios.get(`/search/movie`, {
         params: {
           api_key: API_KEY,
+          query: search,
         },
       });
-      // console.log(response);
+      console.log(response);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

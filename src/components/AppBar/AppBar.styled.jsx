@@ -11,15 +11,16 @@ export const ImgBg = styled.img`
   height: 100%;
   object-fit: cover;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
 `;
 
 export const Header = styled.header`
   /* border: 1px solid #40ff00; */
+  position: absolute;
   display: flex;
   padding: 10px 20px;
   justify-content: space-between;
-
+  z-index: 99;
   width: 100%;
   /* height: 65px; */
   align-items: center;
