@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
 import { selectMoviesDetails } from '../../redux/movieDetails/selector';
 import { fetchDetailsMovie } from '../../redux/movieDetails/operations';
 import checkPoster from '../../utils/checkPoster';
+
+import convertGenres from '../../utils/convertGenres';
 import {
   BgGradient,
   Bookmark,
@@ -20,23 +22,62 @@ import {
   WrapperCards,
   WrapperInfo,
 } from './MovieDetails.styled';
-import { useToggle } from '../../hooks/useToggle';
-import convertGenres from '../../utils/convertGenres';
+import {
+  selectFilmsIdValue,
+  setFilmsID,
+} from '../../redux/savedFilmsId/savedFilmsIdSlice';
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
   const moviesDetails = useSelector(selectMoviesDetails);
+  const savedFilmsId = useSelector(selectFilmsIdValue);
+  console.log(savedFilmsId);
   const location = useLocation();
   const { moviesId } = useParams();
   const beckLinkLocationRef = useRef(location.state?.from ?? '/movies');
 
-  const { isOpen, toggle } = useToggle();
+  const [isFollowing, setIsFollowing] = useState(false);
+
+  const { id, title, poster_path, overview, genres, backdrop_path } =
+    moviesDetails;
 
   useEffect(() => {
     if (!moviesId) return;
+
     dispatch(fetchDetailsMovie(moviesId));
-  }, [dispatch, moviesId]);
-  const { title, poster_path, overview, genres, backdrop_path } = moviesDetails;
+
+    const savedFollowingFilms = localStorage.getItem('followingFilms');
+    if (savedFollowingFilms) {
+      const parsedFollowingFilms = JSON.parse(savedFollowingFilms);
+      setIsFollowing(parsedFollowingFilms.includes(id));
+    }
+  }, [dispatch, id, moviesId]);
+
+  const handleFollowClick = id => {
+    dispatch(setFilmsID(id));
+
+    const newFollowState = !isFollowing;
+    setIsFollowing(newFollowState);
+
+    const savedFollowedFilms = localStorage.getItem('followingFilms');
+    let updatedFollowedFilms = [];
+
+    if (savedFollowedFilms) {
+      updatedFollowedFilms = JSON.parse(savedFollowedFilms);
+    }
+    if (newFollowState) {
+      updatedFollowedFilms.push(id);
+    } else {
+      updatedFollowedFilms = updatedFollowedFilms.filter(
+        filmId => filmId !== id
+      );
+    }
+    localStorage.setItem(
+      'followingFilms',
+      JSON.stringify(updatedFollowedFilms)
+    );
+  };
+
   return (
     <WrapperCards>
       <WrapperBgImg
@@ -49,8 +90,8 @@ export const MovieDetails = () => {
               <Img src={checkPoster(poster_path)} loading="lazy" alt={title} />
             </ImgWrapper>
             <WrapperInfo>
-              <WrapperBookmark onClick={toggle}>
-                {isOpen ? <BookmarkOk /> : <Bookmark />}
+              <WrapperBookmark onClick={() => handleFollowClick(id)}>
+                {isFollowing ? <BookmarkOk /> : <Bookmark />}
               </WrapperBookmark>
               <Title>{title}</Title>
 

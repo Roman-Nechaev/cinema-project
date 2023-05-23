@@ -36,7 +36,6 @@ export const MoviesPopularList = () => {
   };
 
   useEffect(() => {
-    console.log(current);
     dispatch(fetchPopMovie(current));
   }, [current, dispatch]);
 
