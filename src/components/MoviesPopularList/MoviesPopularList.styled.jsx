@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { HiOutlineBookmark, HiOutlineBookmarkAlt } from 'react-icons/hi';
 
 export const WrapperPagination = styled.div`
   display: table;
@@ -9,7 +10,6 @@ export const WrapperPagination = styled.div`
 export const Wrapper = styled.div``;
 
 export const WrapperList = styled.ul`
-  /* display: grid; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,4 +95,36 @@ export const Overview = styled.p`
   line-height: 1.2em;
   text-align: end;
   color: #e0e0e0;
+`;
+export const WrapperBtnFollowing = styled.div``;
+export const Bookmark = styled(HiOutlineBookmark)`
+  position: relative;
+  top: 40px;
+  left: 20px;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+    top: 52px;
+    left: 500px;
+  }
+`;
+
+export const BookmarkOk = styled(HiOutlineBookmarkAlt)`
+  position: relative;
+  top: 40px;
+  left: 20px;
+  color: #ffffff;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+    top: 52px;
+    left: 500px;
+  }
 `;

@@ -37,45 +37,18 @@ export const MovieDetails = () => {
   const beckLinkLocationRef = useRef(location.state?.from ?? '/movies');
 
   const [isFollowing, setIsFollowing] = useState(false);
-
+  console.log(isFollowing);
   const { id, title, poster_path, overview, genres, backdrop_path } =
     moviesDetails;
 
   useEffect(() => {
     if (!moviesId) return;
-
+    setIsFollowing(savedFilmsId.includes(id));
     dispatch(fetchDetailsMovie(moviesId));
-
-    const savedFollowingFilms = localStorage.getItem('followingFilms');
-    if (savedFollowingFilms) {
-      const parsedFollowingFilms = JSON.parse(savedFollowingFilms);
-      setIsFollowing(parsedFollowingFilms.includes(id));
-    }
-  }, [dispatch, id, moviesId]);
+  }, [dispatch, id, moviesId, savedFilmsId]);
 
   const handleFollowClick = id => {
     dispatch(setFilmsID(id));
-
-    const newFollowState = !isFollowing;
-    setIsFollowing(newFollowState);
-
-    const savedFollowedFilms = localStorage.getItem('followingFilms');
-    let updatedFollowedFilms = [];
-
-    if (savedFollowedFilms) {
-      updatedFollowedFilms = JSON.parse(savedFollowedFilms);
-    }
-    if (newFollowState) {
-      updatedFollowedFilms.push(id);
-    } else {
-      updatedFollowedFilms = updatedFollowedFilms.filter(
-        filmId => filmId !== id
-      );
-    }
-    localStorage.setItem(
-      'followingFilms',
-      JSON.stringify(updatedFollowedFilms)
-    );
   };
 
   return (

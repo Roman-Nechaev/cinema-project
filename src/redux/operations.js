@@ -23,19 +23,3 @@ export const fetchPopMovie = createAsyncThunk(
     }
   }
 );
-// export const fetchDetailsMovie = createAsyncThunk(
-//   'movie/fetchDetails',
-//   async (movie_Id, thunkAPI) => {
-//     try {
-//       const response = await axios.get(`/movie/${movie_Id}`, {
-//         params: {
-//           api_key: API_KEY,
-//         },
-//       });
-//       console.log(response);
-//       return response.data.results;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
