@@ -18,6 +18,7 @@ export const AppBar = () => {
 
           <NavigateList>
             <NavLinks to="/">Home</NavLinks>
+            <NavLinks to="/popular">Popular</NavLinks>
             <NavLinks to="/search">Search</NavLinks>
             <NavLinks to="/favorites">Favorites</NavLinks>
           </NavigateList>

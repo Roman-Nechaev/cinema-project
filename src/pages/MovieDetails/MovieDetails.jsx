@@ -31,13 +31,13 @@ export const MovieDetails = () => {
   const dispatch = useDispatch();
   const moviesDetails = useSelector(selectMoviesDetails);
   const savedFilmsId = useSelector(selectFilmsIdValue);
-  console.log(savedFilmsId);
+
   const location = useLocation();
   const { moviesId } = useParams();
   const beckLinkLocationRef = useRef(location.state?.from ?? '/movies');
 
   const [isFollowing, setIsFollowing] = useState(false);
-  console.log(isFollowing);
+
   const { id, title, poster_path, overview, genres, backdrop_path } =
     moviesDetails;
 

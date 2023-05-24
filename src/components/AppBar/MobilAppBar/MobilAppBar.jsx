@@ -12,7 +12,7 @@ export const MobilAppBar = () => {
       {isOpen && <MobilMenu onClose={close} />}
       <BurgerMenu onClick={open} />
       <div>
-        <LogoImg src={ffLogo} alt="" />
+        <LogoImg src={ffLogo} alt="logo" />
       </div>
       <div>
         {/* <UserIcon /> */}

@@ -6,6 +6,7 @@ import { Home } from './pages/Home/Home';
 import { Search } from './pages/Search/Search';
 import { Favorites } from './pages/Favorites/Favorites';
 import { MovieDetails } from './pages/MovieDetails/MovieDetails';
+import { PopularMoviesPages } from './pages/PopularMovies/PopularMoviesPages';
 
 import './App.css';
 
@@ -14,6 +15,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
+        <Route path="/popular" element={<PopularMoviesPages />} />
         <Route path="/search" element={<Search />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="movies/:moviesId" element={<MovieDetails />}></Route>

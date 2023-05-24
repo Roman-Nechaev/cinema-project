@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import storage from 'redux-persist/lib/storage';
-import { persistReducer } from 'redux-persist';
+
 const initialState = {
   filmsId: [],
 };
@@ -20,16 +19,7 @@ export const savedFilmsIdSlice = createSlice({
   },
 });
 
-const persistConfig = {
-  key: 'root',
-  storage,
-  whitelist: ['filmsId'],
-};
-
-export const filmsIdReducer = persistReducer(
-  persistConfig,
-  savedFilmsIdSlice.reducer
-);
+export const filmsIdReducer = savedFilmsIdSlice.reducer;
 
 export const { setFilmsID } = savedFilmsIdSlice.actions;
 

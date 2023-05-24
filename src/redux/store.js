@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
-  // persistReducer,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,18 +9,24 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-
+import storage from 'redux-persist/lib/storage';
 import { moviesReducer } from './moviesSlice';
 import { moviesDetailsReducer } from './movieDetails/movieDetailsSlice';
 import { moviesSearchReducer } from './movieSearch/movieDetailsSlice';
 import { filmsIdReducer } from './savedFilmsId/savedFilmsIdSlice';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['filmsId'],
+};
 
 export const store = configureStore({
   reducer: {
     movies: moviesReducer,
     moviesDetails: moviesDetailsReducer,
     moviesSearch: moviesSearchReducer,
-    savedFilmsId: filmsIdReducer,
+    savedFilmsId: persistReducer(persistConfig, filmsIdReducer),
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
@@ -32,12 +38,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// export const store = configureStore({
-//   reducer: {
-//     movies: moviesReducer,
-//     moviesDetails: moviesDetailsReducer,
-//     moviesSearch: moviesSearchReducer,
-//     savedFilmsId: filmsIdReducer,
-//   },
-// });

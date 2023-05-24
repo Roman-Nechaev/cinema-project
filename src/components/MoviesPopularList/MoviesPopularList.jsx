@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Pagination from 'rc-pagination';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchPopMovie } from '../../redux/operations';
 import { selectMovies } from '../../redux/selector';
+import { MoviesPopularItem } from './MoviesPopularItem/MoviesPopularItem';
 
 import {
   Wrapper,
@@ -13,23 +15,23 @@ import {
 
 import '../../assets/index.less';
 
-import { selectFilmsIdValue } from '../../redux/savedFilmsId/savedFilmsIdSlice';
-import { MoviesPopularItem } from './MoviesPopularItem/MoviesPopularItem';
-
 export const MoviesPopularList = () => {
   const dispatch = useDispatch();
   const moviesPopular = useSelector(selectMovies);
-  const savedFilmsId = useSelector(selectFilmsIdValue);
 
-  const [current, setCurrent] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pageMovies = searchParams.get('page') ?? '';
 
   const onChange = page => {
-    setCurrent(page);
+    setSearchParams({ page: page });
   };
-  console.log(savedFilmsId);
+
   useEffect(() => {
-    dispatch(fetchPopMovie(current));
-  }, [current, dispatch, moviesPopular.id, savedFilmsId]);
+    if (!pageMovies) {
+      setSearchParams({ page: 1 });
+    }
+    dispatch(fetchPopMovie(pageMovies));
+  }, [dispatch, pageMovies, setSearchParams]);
 
   return (
     <Wrapper>
@@ -39,7 +41,7 @@ export const MoviesPopularList = () => {
         ))}
       </WrapperList>
       <WrapperPagination>
-        <Pagination onChange={onChange} current={current} total={500} />
+        <Pagination onChange={onChange} current={pageMovies} total={500} />
       </WrapperPagination>
     </Wrapper>
   );
