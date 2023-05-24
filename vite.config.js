@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/https://github.com/Roman-Nechaev/cinema-project/settings/pages',
+  base: '/https://github.com/Roman-Nechaev/cinema-project',
 });
