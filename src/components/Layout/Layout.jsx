@@ -1,4 +1,4 @@
-import { Background } from './Layout.styled';
+import { Background, Container } from './Layout.styled';
 
 import { AppBar } from '../AppBar/AppBar';
 import { Suspense } from 'react';
@@ -10,9 +10,11 @@ export const Layout = () => {
       <AppBar />
 
       <main>
-        <Suspense fallback={null}>
-          <Outlet />
-        </Suspense>
+        <Container>
+          <Suspense fallback={null}>
+            <Outlet />
+          </Suspense>
+        </Container>
       </main>
       <footer>
         <h2>Footer</h2>

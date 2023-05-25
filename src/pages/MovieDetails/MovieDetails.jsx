@@ -43,12 +43,12 @@ export const MovieDetails = () => {
 
   useEffect(() => {
     if (!moviesId) return;
-    setIsFollowing(savedFilmsId.includes(id));
+    setIsFollowing(savedFilmsId.find(item => item.id === id));
     dispatch(fetchDetailsMovie(moviesId));
   }, [dispatch, id, moviesId, savedFilmsId]);
 
-  const handleFollowClick = id => {
-    dispatch(setFilmsID(id));
+  const handleFollowClick = item => {
+    dispatch(setFilmsID(item));
   };
 
   return (
@@ -63,7 +63,7 @@ export const MovieDetails = () => {
               <Img src={checkPoster(poster_path)} loading="lazy" alt={title} />
             </ImgWrapper>
             <WrapperInfo>
-              <WrapperBookmark onClick={() => handleFollowClick(id)}>
+              <WrapperBookmark onClick={() => handleFollowClick(moviesDetails)}>
                 {isFollowing ? <BookmarkOk /> : <Bookmark />}
               </WrapperBookmark>
               <Title>{title}</Title>

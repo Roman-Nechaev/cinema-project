@@ -12,7 +12,7 @@ import {
   Overview,
   Title,
   WrapperBtnFollowing,
-} from '../MoviesPopularList.styled';
+} from '../FavoriteList.styled';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -21,7 +21,7 @@ import {
 } from '../../../redux/savedFilmsId/savedFilmsIdSlice';
 import { useLocation } from 'react-router-dom';
 
-export const MoviesPopularItem = moviesItem => {
+export const FavoritesItem = moviesItem => {
   const { id, title, poster_path, overview, release_date } = moviesItem;
   const savedFilmsId = useSelector(selectFilmsIdValue);
   const dispatch = useDispatch();

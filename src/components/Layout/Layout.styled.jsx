@@ -20,3 +20,7 @@ export const Background = styled.div`
   min-height: 660px;
   background-color: #0a192f;
 `;
+
+export const Container = styled.div`
+  padding-top: 80px;
+`;

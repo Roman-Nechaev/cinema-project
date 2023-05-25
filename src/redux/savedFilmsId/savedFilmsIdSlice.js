@@ -8,11 +8,15 @@ export const savedFilmsIdSlice = createSlice({
   initialState,
   reducers: {
     setFilmsID(state, action) {
-      const itemFilm = state.filmsId.find(item => item === action.payload);
+      const itemFilm = state.filmsId.find(
+        item => item.id === action.payload.id
+      );
       if (!itemFilm) {
         state.filmsId.push(action.payload);
       } else {
-        const index = state.filmsId.findIndex(stat => stat === action.payload);
+        const index = state.filmsId.findIndex(
+          stat => stat.id === action.payload.id
+        );
         state.filmsId.splice(index, 1);
       }
     },
