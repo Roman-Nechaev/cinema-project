@@ -14,6 +14,9 @@ export const MobilMenu = ({ onClose }) => (
         <NavLink to="/search">Search</NavLink>
       </li>
       <li>
+        <NavLink to="/popular">Popular</NavLink>
+      </li>
+      <li>
         <NavLink to="/favorites">Favorites</NavLink>
       </li>
     </ul>
