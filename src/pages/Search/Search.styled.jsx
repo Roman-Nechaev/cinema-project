@@ -4,7 +4,7 @@ import { Form, Field } from 'formik';
 // import { HiOutlineBookmark, HiOutlineBookmarkAlt } from 'react-icons/hi';
 
 export const Wrapper = styled.div`
-  padding-top: 80px;
+  /* padding-top: 80px; */
   /* min-height: 500px; */
   /* @media screen and (min-width: 768px) {
     min-height: 800px;

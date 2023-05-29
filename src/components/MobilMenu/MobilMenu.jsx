@@ -1,7 +1,7 @@
-import { WrapperMenu, MenuClose } from './MobilMenu.styles';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { WrapperMenu, MenuClose } from './MobilMenu.styles';
 
-// eslint-disable-next-line react/prop-types
 export const MobilMenu = ({ onClose }) => (
   <WrapperMenu>
     <h3>Hello mobil Menu</h3>
@@ -22,3 +22,7 @@ export const MobilMenu = ({ onClose }) => (
     </ul>
   </WrapperMenu>
 );
+
+MobilMenu.propTypes = {
+  onClose: PropTypes.func,
+};
