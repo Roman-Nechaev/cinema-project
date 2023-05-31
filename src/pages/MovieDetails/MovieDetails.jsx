@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useRef, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useEffect, useRef, useState, Suspense } from 'react';
+import { NavLink, useLocation, useParams, Outlet } from 'react-router-dom';
 
 import { selectMoviesDetails } from '../../redux/movieDetails/selector';
 import { fetchDetailsMovie } from '../../redux/movieDetails/operations';
@@ -21,11 +21,16 @@ import {
   WrapperBookmark,
   WrapperCards,
   WrapperInfo,
+  SectionLink,
+  WrapperOutlet,
+  LinkNav,
 } from './MovieDetails.styled';
 import {
   selectFilmsIdValue,
   setFilmsID,
 } from '../../redux/savedFilmsId/savedFilmsIdSlice';
+import { MdOutlineTheaterComedy } from 'react-icons/md';
+import { useToggle } from '../../hooks/useToggle';
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -50,7 +55,8 @@ export const MovieDetails = () => {
   const handleFollowClick = item => {
     dispatch(setFilmsID(item));
   };
-
+  const { isOpen, open, close, toggle } = useToggle();
+  console.log(isOpen);
   return (
     <WrapperCards>
       <WrapperBgImg
@@ -66,6 +72,12 @@ export const MovieDetails = () => {
               <WrapperBookmark onClick={() => handleFollowClick(moviesDetails)}>
                 {isFollowing ? <BookmarkOk /> : <Bookmark />}
               </WrapperBookmark>
+              <SectionLink>
+                <LinkNav to="cast" onClick={toggle}>
+                  Cast
+                </LinkNav>
+                {/* <LinkNav to="reviews">Reviews</LinkNav> */}
+              </SectionLink>
               <Title>{title}</Title>
 
               {genres && (
@@ -76,6 +88,12 @@ export const MovieDetails = () => {
               <Overview>{overview}</Overview>
             </WrapperInfo>
           </>
+
+          <WrapperOutlet flag={isOpen}>
+            <Suspense fallback={'load...'}>
+              <Outlet />
+            </Suspense>
+          </WrapperOutlet>
         </BgGradient>
       </WrapperBgImg>
     </WrapperCards>

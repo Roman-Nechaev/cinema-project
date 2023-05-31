@@ -22,5 +22,5 @@ export const Background = styled.div`
 `;
 
 export const Container = styled.div`
-  padding-top: 80px;
+  /* padding-top: 80px; */
 `;

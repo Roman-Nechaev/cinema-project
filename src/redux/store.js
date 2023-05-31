@@ -14,6 +14,7 @@ import { moviesReducer } from './moviesSlice';
 import { moviesDetailsReducer } from './movieDetails/movieDetailsSlice';
 import { moviesSearchReducer } from './movieSearch/movieDetailsSlice';
 import { filmsIdReducer } from './savedFilmsId/savedFilmsIdSlice';
+import { castReducer } from './requestCast/castSlice';
 
 const persistConfig = {
   key: 'root',
@@ -25,6 +26,7 @@ export const store = configureStore({
   reducer: {
     movies: moviesReducer,
     moviesDetails: moviesDetailsReducer,
+    moviesCast: castReducer,
     moviesSearch: moviesSearchReducer,
     savedFilmsId: persistReducer(persistConfig, filmsIdReducer),
   },

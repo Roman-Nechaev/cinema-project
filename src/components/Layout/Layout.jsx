@@ -16,9 +16,7 @@ export const Layout = () => {
           </Suspense>
         </Container>
       </main>
-      <footer>
-        <h2>Footer</h2>
-      </footer>
+      <footer>{/* <h2>Footer</h2> */}</footer>
     </Background>
   );
 };

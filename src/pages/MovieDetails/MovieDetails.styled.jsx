@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { HiOutlineBookmark, HiOutlineBookmarkAlt } from 'react-icons/hi';
+import { createGlobalState } from 'react-use';
 
 export const WrapperCards = styled.div`
   position: relative;
@@ -77,8 +78,6 @@ export const WrapperInfo = styled.div`
   backdrop-filter: blur(2px);
   border-radius: 20px 20px 0 0;
   @media screen and (min-width: 768px) {
-    /* display: none; */
-
     background: rgba(255, 255, 255, 0);
     position: relative;
     border-radius: 20px;
@@ -93,7 +92,6 @@ export const WrapperInfo = styled.div`
 `;
 
 export const Title = styled.h2`
-  /* text-align: center; */
   font-size: 28px;
   padding-left: 10px;
   text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
@@ -140,7 +138,6 @@ export const Bookmark = styled(HiOutlineBookmark)`
   right: 15px;
   color: #ffffff;
   width: 22px;
-
   height: 22px;
   cursor: pointer;
   @media screen and (min-width: 768px) {
@@ -169,5 +166,91 @@ export const WrapperBookmark = styled.div`
     height: 22px;
     top: 330px;
     left: -280px;
+  }
+`;
+
+const setFlag = props => {
+  return props.flag ? 'ani 1s forwards' : 'hide 1s forwards';
+};
+
+export const WrapperOutlet = styled.div`
+  position: absolute;
+
+  width: 100%;
+  bottom: 150px;
+
+  animation: ${setFlag};
+
+  transform: translateY(50%);
+
+  @keyframes ani {
+    0% {
+      bottom: -100%;
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes hide {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      bottom: -100%;
+      display: none;
+      transform: translateY(50%);
+    }
+  }
+  @media screen and (min-width: 768px) {
+    position: relative;
+
+    bottom: -170px;
+
+    animation: ${setFlag};
+
+    transform: translateY(50%);
+
+    @keyframes ani {
+      0% {
+        bottom: -100%;
+        transform: translateY(50%);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    @keyframes hide {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        bottom: -100%;
+        display: none;
+        transform: translateY(50%);
+      }
+    }
+  }
+`;
+
+export const SectionLink = styled.div`
+  position: relative;
+`;
+
+export const LinkNav = styled(NavLink)`
+  position: absolute;
+  color: #ff0000;
+  right: 45px;
+  width: 5%;
+  text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
+
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    /* width: 22px;
+    height: 22px; */
+
+    top: 340px;
+    left: -80px;
   }
 `;

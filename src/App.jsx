@@ -9,6 +9,8 @@ import { MovieDetails } from './pages/MovieDetails/MovieDetails';
 import { PopularMoviesPages } from './pages/PopularMovies/PopularMoviesPages';
 
 import './App.css';
+import { Cast } from './pages/MovieDetails/Cast/Cast';
+import { Reviews } from './pages/MovieDetails/Reviews/Reviews';
 
 function App() {
   return (
@@ -18,7 +20,10 @@ function App() {
         <Route path="/popular" element={<PopularMoviesPages />} />
         <Route path="/search" element={<Search />} />
         <Route path="/favorites" element={<Favorites />} />
-        <Route path="movies/:moviesId" element={<MovieDetails />}></Route>
+        <Route path="movies/:moviesId" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
+        </Route>
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>

@@ -20,7 +20,7 @@ import { selectMoviesTotal } from '../../redux/movieSearch/selector';
 export const Search = () => {
   const dispatch = useDispatch();
   const totalFilms = useSelector(selectMoviesTotal);
-  console.log(totalFilms);
+
   const handleSubmit = ({ values }, actions) => {
     if (values.trim() === '') {
       return;
