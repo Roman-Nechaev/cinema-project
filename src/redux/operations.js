@@ -14,6 +14,7 @@ export const fetchPopMovie = createAsyncThunk(
         params: {
           api_key: API_KEY,
           page,
+          language: 'ru-RU',
         },
       });
 

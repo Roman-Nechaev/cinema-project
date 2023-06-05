@@ -48,19 +48,17 @@ export const LiCard = styled.li`
   /* padding-bottom: 10px; */
   border-radius: 8px;
   overflow: hidden;
+  min-width: 20%;
 
-  & {
+  @media screen and (min-width: 900px) {
     min-width: 140px;
-    /* width: 140px; */
-    /* background-color: #fff; */
   }
-
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 `;
 
 export const Img = styled.img`
   min-width: 100%;
-  height: 200px;
+  /* height: 200px; */
 `;
 
 export const Name = styled.p`

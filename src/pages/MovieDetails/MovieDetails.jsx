@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef, useState, Suspense } from 'react';
-import { NavLink, useLocation, useParams, Outlet } from 'react-router-dom';
-
+import { useLocation, useParams, Outlet } from 'react-router-dom';
+import { CircularProgressbar } from 'react-circular-progressbar';
 import { selectMoviesDetails } from '../../redux/movieDetails/selector';
 import { fetchDetailsMovie } from '../../redux/movieDetails/operations';
 import checkPoster from '../../utils/checkPoster';
 
 import convertGenres from '../../utils/convertGenres';
+
 import {
   BgGradient,
   Bookmark,
@@ -24,12 +25,15 @@ import {
   SectionLink,
   WrapperOutlet,
   LinkNav,
+  ContainerVote,
 } from './MovieDetails.styled';
 import {
   selectFilmsIdValue,
   setFilmsID,
 } from '../../redux/savedFilmsId/savedFilmsIdSlice';
-import { MdOutlineTheaterComedy } from 'react-icons/md';
+
+import 'react-circular-progressbar/dist/styles.css';
+
 import { useToggle } from '../../hooks/useToggle';
 
 export const MovieDetails = () => {
@@ -43,9 +47,16 @@ export const MovieDetails = () => {
 
   const [isFollowing, setIsFollowing] = useState(false);
 
-  const { id, title, poster_path, overview, genres, backdrop_path } =
-    moviesDetails;
-
+  const {
+    id,
+    title,
+    poster_path,
+    overview,
+    genres,
+    backdrop_path,
+    vote_average,
+  } = moviesDetails;
+  const voteAverage = Math.ceil(vote_average * 10);
   useEffect(() => {
     if (!moviesId) return;
     setIsFollowing(savedFilmsId.find(item => item.id === id));
@@ -55,8 +66,8 @@ export const MovieDetails = () => {
   const handleFollowClick = item => {
     dispatch(setFilmsID(item));
   };
-  const { isOpen, open, close, toggle } = useToggle();
-  console.log(isOpen);
+  const { isOpen, toggle } = useToggle();
+
   return (
     <WrapperCards>
       <WrapperBgImg
@@ -72,28 +83,61 @@ export const MovieDetails = () => {
               <WrapperBookmark onClick={() => handleFollowClick(moviesDetails)}>
                 {isFollowing ? <BookmarkOk /> : <Bookmark />}
               </WrapperBookmark>
-              <SectionLink>
-                <LinkNav to="cast" onClick={toggle}>
-                  Cast
-                </LinkNav>
-                {/* <LinkNav to="reviews">Reviews</LinkNav> */}
-              </SectionLink>
-              <Title>{title}</Title>
 
+              <Title>{title}</Title>
               {genres && (
                 <Genres>
                   Genres: <span>{convertGenres(genres)}</span>
                 </Genres>
               )}
+
+              <ContainerVote>
+                <CircularProgressbar
+                  value={voteAverage}
+                  text={`${voteAverage}%`}
+                  styles={{
+                    root: {
+                      width: '60px',
+                      height: '60px',
+                      // fontFamily: 'cursive',
+                      backgroundColor: '#09344b',
+                      borderRadius: '50%',
+                      padding: '3px',
+                    },
+                    path: {
+                      stroke: `rgba(17, 218, 164, ${voteAverage / 100})`,
+                    },
+                    trail: {
+                      stroke: '#5b5a5a',
+                    },
+                    text: {
+                      fill: '#ffffff',
+                      dominantBaseline: 'central',
+
+                      fontSize: '28px',
+                    },
+                    background: {
+                      fill: '#3ec759',
+                    },
+                  }}
+                />
+                <SectionLink>
+                  <LinkNav to="cast" flag={isOpen} onClick={toggle}>
+                    Cast
+                  </LinkNav>
+                  {/* <LinkNav to="reviews">Reviews</LinkNav> */}
+                </SectionLink>
+              </ContainerVote>
               <Overview>{overview}</Overview>
             </WrapperInfo>
+            {isOpen && (
+              <WrapperOutlet flag={isOpen}>
+                <Suspense fallback={'load...'}>
+                  <Outlet />
+                </Suspense>
+              </WrapperOutlet>
+            )}
           </>
-
-          <WrapperOutlet flag={isOpen}>
-            <Suspense fallback={'load...'}>
-              <Outlet />
-            </Suspense>
-          </WrapperOutlet>
         </BgGradient>
       </WrapperBgImg>
     </WrapperCards>

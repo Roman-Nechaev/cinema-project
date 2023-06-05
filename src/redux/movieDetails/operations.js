@@ -11,6 +11,7 @@ export const fetchDetailsMovie = createAsyncThunk(
       const response = await axios.get(`/movie/${movie_Id}`, {
         params: {
           api_key: API_KEY,
+          language: 'ru-RU',
         },
       });
       // console.log(response);

@@ -97,6 +97,7 @@ export const Overview = styled.p`
   color: #e0e0e0;
 `;
 export const WrapperBtnFollowing = styled.div``;
+
 export const Bookmark = styled(HiOutlineBookmark)`
   position: relative;
   top: 40px;

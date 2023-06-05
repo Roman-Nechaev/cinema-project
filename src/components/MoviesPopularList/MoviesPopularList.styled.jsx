@@ -20,7 +20,7 @@ export const WrapperList = styled.ul`
     flex-direction: row;
     align-items: stretch;
     max-width: 1200px;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 
     flex-wrap: wrap;
   }
@@ -31,6 +31,7 @@ export const LinkSt = styled(Link)`
   display: flex;
   width: calc(100vw - 42px);
   max-width: calc(100vw - 42px);
+  /* height: 90%; */
 
   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
 
@@ -45,8 +46,9 @@ export const LinkSt = styled(Link)`
   @media screen and (min-width: 768px) {
     flex-direction: column;
     margin: 10px;
-    /* flex-basis: 270px; */
+    flex-basis: 270px;
     max-width: 200px;
+    min-height: 400px;
   }
   transition: 0.5s;
   :hover,
@@ -55,7 +57,9 @@ export const LinkSt = styled(Link)`
     box-shadow: 0px 6px 22px 3px rgba(0, 208, 255, 0.73);
   }
 `;
-export const ListItem = styled.li``;
+export const ListItem = styled.li`
+  position: relative;
+`;
 
 export const ItemImg = styled.img`
   min-width: 94px;
@@ -63,7 +67,7 @@ export const ItemImg = styled.img`
   height: 141px;
   @media screen and (min-width: 768px) {
     width: 100%;
-    height: 100%;
+    height: 300px;
   }
   :hover,
   :focus {
@@ -74,8 +78,7 @@ export const ItemImg = styled.img`
 export const Details = styled.div`
   padding: 10px;
   display: flex;
-  /* align-content: center; */
-  /* align-items: center; */
+
   flex-wrap: wrap;
 `;
 
@@ -96,35 +99,43 @@ export const Overview = styled.p`
   text-align: end;
   color: #e0e0e0;
 `;
-export const WrapperBtnFollowing = styled.div``;
+export const WrapperBtnFollowing = styled.div`
+  /* position: absolute; */
+`;
 export const Bookmark = styled(HiOutlineBookmark)`
-  position: relative;
-  top: 40px;
-  left: 20px;
+  position: absolute;
+  top: -8px;
+  left: -40px;
   color: #ffffff;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
+
   cursor: pointer;
-  @media screen and (max-width: 768px) {
-    width: 30px;
-    height: 30px;
-    top: 52px;
-    left: 500px;
+  @media screen and (min-width: 768px) {
+    /* width: 25px; */
+    /* height: 25px; */
+    top: 100px;
+    left: 5px;
   }
 `;
 
 export const BookmarkOk = styled(HiOutlineBookmarkAlt)`
-  position: relative;
-  top: 40px;
-  left: 20px;
+  position: absolute;
+  top: -8px;
+  left: -40px;
   color: #ffffff;
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   cursor: pointer;
-  @media screen and (max-width: 768px) {
-    width: 30px;
-    height: 30px;
-    top: 52px;
-    left: 500px;
+  @media screen and (min-width: 768px) {
+    top: 100px;
+    left: 5px;
   }
+`;
+
+export const WrapperProgressbar = styled.div`
+  position: absolute;
+  bottom: 90px;
+  right: -3px;
+  /* bottom: 100%; */
 `;

@@ -14,7 +14,9 @@ export const fetchSearchMovie = createAsyncThunk(
         params: {
           api_key: API_KEY,
           query: search,
+
           page: page,
+          language: 'ru-RU',
         },
       });
 

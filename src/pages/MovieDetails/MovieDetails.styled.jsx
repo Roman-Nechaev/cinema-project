@@ -1,7 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { HiOutlineBookmark, HiOutlineBookmarkAlt } from 'react-icons/hi';
-import { createGlobalState } from 'react-use';
 
 export const WrapperCards = styled.div`
   position: relative;
@@ -71,18 +70,19 @@ export const Img = styled.img`
 
 export const WrapperInfo = styled.div`
   position: absolute;
-
+  width: 100%;
   bottom: 0;
   padding: 10px;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(2px);
   border-radius: 20px 20px 0 0;
+  z-index: 99;
   @media screen and (min-width: 768px) {
     background: rgba(255, 255, 255, 0);
     position: relative;
     border-radius: 20px;
     width: 400px;
-    min-height: 300px;
+    min-height: 350px;
     left: 350px;
     top: 30%;
   }
@@ -118,7 +118,7 @@ export const Overview = styled.p`
   margin-top: 10px;
   text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
   @media screen and (min-width: 768px) {
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
   }
 `;
@@ -177,6 +177,7 @@ export const WrapperOutlet = styled.div`
   position: absolute;
 
   width: 100%;
+
   bottom: 150px;
 
   animation: ${setFlag};
@@ -185,7 +186,8 @@ export const WrapperOutlet = styled.div`
 
   @keyframes ani {
     0% {
-      bottom: -100%;
+      bottom: -10%;
+
       transform: translateY(50%);
     }
     100% {
@@ -197,8 +199,8 @@ export const WrapperOutlet = styled.div`
       transform: translateY(0);
     }
     100% {
-      bottom: -100%;
-      display: none;
+      bottom: -10%;
+
       transform: translateY(50%);
     }
   }
@@ -225,8 +227,8 @@ export const WrapperOutlet = styled.div`
         transform: translateY(0);
       }
       100% {
-        bottom: -100%;
-        display: none;
+        bottom: -50%;
+
         transform: translateY(50%);
       }
     }
@@ -234,23 +236,48 @@ export const WrapperOutlet = styled.div`
 `;
 
 export const SectionLink = styled.div`
-  position: relative;
+  /* position: relative; */
 `;
 
 export const LinkNav = styled(NavLink)`
-  position: absolute;
-  color: #ff0000;
+  margin-left: 10px;
+  padding: 10px;
+
+  color: ${props => (props.flag ? '#ff0404' : '#ffffff')};
   right: 45px;
   width: 5%;
   text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
-
+  border-radius: 100%;
+  background-color: #09344b;
+  transition: all 0.3s;
   cursor: pointer;
 
   @media screen and (min-width: 768px) {
-    /* width: 22px;
-    height: 22px; */
+    /* top: 340px; */
+    /* left: -80px; */
+  }
+  :hover {
+    color: #ff0000;
+  }
+`;
 
-    top: 340px;
-    left: -80px;
+export const ContainerVote = styled.div`
+  display: flex;
+  align-items: center;
+  /* margin-top: 10px; */
+  margin-left: 15px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  /* left: 0; */
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    position: static;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 15px;
   }
 `;
