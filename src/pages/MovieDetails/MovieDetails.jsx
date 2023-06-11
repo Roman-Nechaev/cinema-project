@@ -122,7 +122,7 @@ export const MovieDetails = () => {
                   }}
                 />
                 <SectionLink>
-                  <LinkNav to="cast" flag={isOpen} onClick={toggle}>
+                  <LinkNav to="cast" onClick={toggle}>
                     Cast
                   </LinkNav>
                   {/* <LinkNav to="reviews">Reviews</LinkNav> */}

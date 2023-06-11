@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { fetchPopMovie } from '../../redux/operations';
 import { selectMovies } from '../../redux/selector';
-import { MoviesPopularItem } from './MoviesPopularItem/MoviesPopularItem';
 
 import {
   Wrapper,
@@ -14,6 +13,7 @@ import {
 } from './MoviesPopularList.styled';
 
 import '../../assets/index.less';
+import { CommonMovieItem } from '../CommonMovieList/CommonMovieItem';
 
 export const MoviesPopularList = () => {
   const dispatch = useDispatch();
@@ -37,7 +37,7 @@ export const MoviesPopularList = () => {
     <Wrapper>
       <WrapperList>
         {moviesPopular.map(item => (
-          <MoviesPopularItem key={item.id} {...item} />
+          <CommonMovieItem key={item.id} {...item} />
         ))}
       </WrapperList>
       <WrapperPagination>

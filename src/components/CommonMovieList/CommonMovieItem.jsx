@@ -1,6 +1,17 @@
-import checkPoster from '../../../utils/checkPoster';
-import formattingOverview from '../../../utils/formattingOverview';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMedia } from 'react-use';
+import { useLocation } from 'react-router-dom';
+import { CircularProgressbar } from 'react-circular-progressbar';
+
+import checkPoster from '../../utils/checkPoster';
+import formattingOverview from '../../utils/formattingOverview';
+import {
+  selectFilmsIdValue,
+  setFilmsID,
+} from '../../redux/savedFilmsId/savedFilmsIdSlice';
+
+import 'react-circular-progressbar/dist/styles.css';
 import {
   ListItem,
   Bookmark,
@@ -13,20 +24,9 @@ import {
   Title,
   WrapperBtnFollowing,
   WrapperProgressbar,
-} from '../MoviesPopularList.styled';
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  selectFilmsIdValue,
-  setFilmsID,
-} from '../../../redux/savedFilmsId/savedFilmsIdSlice';
-import { useLocation } from 'react-router-dom';
+} from './CommonMovieItem.styled';
 
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-
-export const MoviesPopularItem = moviesItem => {
-  console.log(moviesItem);
+export const CommonMovieItem = moviesItem => {
   const { id, title, poster_path, overview, release_date, vote_average } =
     moviesItem;
   const voteAverage = Math.ceil(vote_average * 10);

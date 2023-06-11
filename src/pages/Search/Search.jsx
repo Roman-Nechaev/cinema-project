@@ -1,4 +1,15 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { Formik } from 'formik';
+import Pagination from 'rc-pagination';
+
+import { MoviesSearchList } from '../../components/MoviesSearchList/MoviesSearchList';
+import { fetchSearchMovie } from '../../redux/movieSearch/operations';
+
+import { WrapperPagination } from '../../components/MoviesSearchList/MoviesSearchList.styled';
+import { selectMoviesTotal } from '../../redux/movieSearch/selector';
+
 import {
   Button,
   ContainerForm,
@@ -6,16 +17,6 @@ import {
   Input,
   Wrapper,
 } from './Search.styled';
-
-import { MoviesSearchList } from '../../components/MoviesSearchList/MoviesSearchList';
-import { useSearchParams } from 'react-router-dom';
-import { fetchSearchMovie } from '../../redux/movieSearch/operations';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
-import Pagination from 'rc-pagination';
-import { WrapperPagination } from '../../components/MoviesSearchList/MoviesSearchList.styled';
-import { selectMoviesTotal } from '../../redux/movieSearch/selector';
 
 export const Search = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,7 @@ export const Search = () => {
           </FormsSt>
         </Formik>
       </ContainerForm>
+
       <MoviesSearchList />
 
       {totalFilms && (

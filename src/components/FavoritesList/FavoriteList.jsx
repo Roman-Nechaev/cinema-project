@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
-import { FavoritesItem } from '../FavoritesList/FavoritesItem/FavoritesItem';
 import { selectFilmsIdValue } from '../../redux/savedFilmsId/savedFilmsIdSlice';
+import { CommonMovieItem } from '../CommonMovieList/CommonMovieItem';
 
 import { Wrapper, WrapperList } from './FavoriteList.styled';
 
@@ -12,7 +12,7 @@ export const FavoriteList = () => {
     <Wrapper>
       <WrapperList>
         {savedFilmsId.map(item => (
-          <FavoritesItem key={item.id} {...item} />
+          <CommonMovieItem key={item.id} {...item} />
         ))}
       </WrapperList>
     </Wrapper>
