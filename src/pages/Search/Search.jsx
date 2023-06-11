@@ -45,7 +45,6 @@ export const Search = () => {
       setSearchParams();
       return;
     }
-    console.log(queryMovies);
     dispatch(fetchSearchMovie({ search: queryMovies, page: pageMovies }));
   }, [dispatch, pageMovies, queryMovies, setSearchParams]);
 
