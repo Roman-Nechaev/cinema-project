@@ -169,81 +169,86 @@ export const WrapperBookmark = styled.div`
   }
 `;
 
-const setFlag = props => {
-  return props.flag ? 'ani 1s forwards' : 'hide 1s forwards';
-};
+// const setFlag = props => {
+//   return props.flag ? 'ani 1s forwards' : 'hide 1s forwards';
+// };
 
-export const WrapperOutlet = styled.div`
-  position: absolute;
+// export const WrapperOutlet = styled.div`
+// position: absolute;
 
-  width: 100%;
+// width: 100%;
 
-  bottom: 150px;
+// bottom: 150px;
 
-  animation: ${setFlag};
+// /* animation: ${setFlag}; */
 
-  transform: translateY(50%);
+// transform: translateY(50%);
 
-  @keyframes ani {
-    0% {
-      bottom: -10%;
+// @keyframes ani {
+//   0% {
+//     bottom: -10%;
 
-      transform: translateY(50%);
-    }
-    100% {
-      transform: translateY(0);
-    }
-  }
-  @keyframes hide {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      bottom: -10%;
+//     transform: translateY(50%);
+//   }
+//   100% {
+//     transform: translateY(0);
+//   }
+// }
+// @keyframes hide {
+//   0% {
+//     transform: translateY(0);
+//   }
+//   100% {
+//     bottom: -10%;
 
-      transform: translateY(50%);
-    }
-  }
-  @media screen and (min-width: 768px) {
-    position: relative;
+//     transform: translateY(50%);
+//   }
+// }
+//   @media screen and (min-width: 768px) {
+//     position: relative;
 
-    bottom: -170px;
+//     bottom: -170px;
 
-    animation: ${setFlag};
+//     /* animation: ${setFlag}; */
 
-    transform: translateY(50%);
+//     transform: translateY(50%);
 
-    @keyframes ani {
-      0% {
-        bottom: -100%;
-        transform: translateY(50%);
-      }
-      100% {
-        transform: translateY(0);
-      }
-    }
-    @keyframes hide {
-      0% {
-        transform: translateY(0);
-      }
-      100% {
-        bottom: -50%;
+//     @keyframes ani {
+//       0% {
+//         bottom: -100%;
+//         transform: translateY(50%);
+//       }
+//       100% {
+//         transform: translateY(0);
+//       }
+//     }
+//     @keyframes hide {
+//       0% {
+//         transform: translateY(0);
+//       }
+//       100% {
+//         bottom: -50%;
 
-        transform: translateY(50%);
-      }
-    }
-  }
-`;
+//         transform: translateY(50%);
+//       }
+//     }
+//   }
+// `;
+
+export const WrapperOutlet = styled.div``;
 
 export const SectionLink = styled.div`
   /* position: relative; */
 `;
 
 export const LinkNav = styled(NavLink)`
+  border: 2px solid rgb(212, 212, 212);
+
   margin-left: 10px;
   padding: 10px;
 
-  color: ${props => (props.flag ? '#ff0404' : '#ffffff')};
+  color: #ffffff;
+
   right: 45px;
   width: 5%;
   text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
@@ -257,6 +262,9 @@ export const LinkNav = styled(NavLink)`
     /* left: -80px; */
   }
   :hover {
+    color: #ff0000;
+  }
+  &.active {
     color: #ff0000;
   }
 `;

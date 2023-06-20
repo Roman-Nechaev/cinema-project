@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const CastScrolled = styled.div`
   position: absolute;
 
-  top: 150px;
+  /* top: 150px; */
   left: 0;
   width: 100%;
   padding-left: 40px;
@@ -12,6 +12,35 @@ export const CastScrolled = styled.div`
   backdrop-filter: blur(25px);
 
   background: rgba(255, 255, 255, 0.25);
+
+  width: 100%;
+
+  bottom: -170px;
+
+  animation: ani 1s forwards;
+
+  transform: translateY(50%);
+
+  @keyframes ani {
+    0% {
+      bottom: -10%;
+
+      transform: translateY(50%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  @keyframes hide {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      bottom: -10%;
+
+      transform: translateY(50%);
+    }
+  }
 `;
 
 export const Ul = styled.ul`

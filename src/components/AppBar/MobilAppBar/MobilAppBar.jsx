@@ -1,5 +1,6 @@
 import { useToggle } from '../../../hooks/useToggle';
 import { MobilMenu } from '../../MobilMenu/MobilMenu';
+import { Link } from 'react-router-dom';
 
 import ffLogo from '../../../assets/logo/ff.png';
 
@@ -12,7 +13,9 @@ export const MobilAppBar = () => {
       {isOpen && <MobilMenu onClose={close} />}
       <BurgerMenu onClick={open} />
       <div>
-        <LogoImg src={ffLogo} alt="logo" />
+        <Link to="/">
+          <LogoImg src={ffLogo} alt="logo" />
+        </Link>
       </div>
       <div>
         {/* <UserIcon /> */}

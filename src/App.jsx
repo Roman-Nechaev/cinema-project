@@ -11,6 +11,7 @@ import { PopularMoviesPages } from './pages/PopularMovies/PopularMoviesPages';
 import './App.css';
 import { Cast } from './pages/MovieDetails/Cast/Cast';
 import { Reviews } from './pages/MovieDetails/Reviews/Reviews';
+import { TrailerMovie } from './components/TrailerMovie/TrailerMovie';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="movies/:moviesId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
+          <Route path="trailer" element={<TrailerMovie />} />
         </Route>
         <Route path="*" element={<Home />} />
       </Route>
@@ -31,3 +33,4 @@ function App() {
 }
 
 export default App;
+TrailerMovie;

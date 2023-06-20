@@ -4,17 +4,19 @@ import axios from 'axios';
 
 import { API_KEY } from '../../KEY/movieKey';
 
-export const fetchRequestCast = createAsyncThunk(
-  'movie/fetchCast',
+export const fetchMovieVideos = createAsyncThunk(
+  'movie/moviesTrailer',
   async (movie_Id, thunkAPI) => {
     try {
-      const response = await axios.get(`/movie/${movie_Id}/credits`, {
+      const { data } = await axios.get(`/movie/${movie_Id}/videos`, {
         params: {
           api_key: API_KEY,
+          // language: 'ru-RU',
+          // language: 'uk-UK',
         },
       });
 
-      return response.data;
+      return data.results[0];
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

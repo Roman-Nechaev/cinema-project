@@ -1,4 +1,5 @@
 import { useMedia } from 'react-use';
+import { Link } from 'react-router-dom';
 
 import { Header, LogoImg, NavLinks, NavigateList } from './AppBar.styled';
 import { MobilAppBar } from './MobilAppBar/MobilAppBar';
@@ -14,8 +15,9 @@ export const AppBar = () => {
         <MobilAppBar />
       ) : (
         <>
-          <LogoImg src={foundFilmsLogo} alt="" />
-
+          <Link to="/">
+            <LogoImg src={foundFilmsLogo} alt="Logo" />
+          </Link>
           <NavigateList>
             <NavLinks to="/">Home</NavLinks>
             <NavLinks to="/popular">Popular</NavLinks>

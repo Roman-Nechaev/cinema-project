@@ -56,7 +56,9 @@ export const MovieDetails = () => {
     backdrop_path,
     vote_average,
   } = moviesDetails;
+
   const voteAverage = Math.ceil(vote_average * 10);
+
   useEffect(() => {
     if (!moviesId) return;
     setIsFollowing(savedFilmsId.find(item => item.id === id));
@@ -67,6 +69,10 @@ export const MovieDetails = () => {
     dispatch(setFilmsID(item));
   };
   const { isOpen, toggle } = useToggle();
+
+  const currenBtn = item => {
+    console.log(item.currentTarget.className);
+  };
 
   return (
     <WrapperCards>
@@ -121,22 +127,26 @@ export const MovieDetails = () => {
                     },
                   }}
                 />
-                <SectionLink>
-                  <LinkNav to="cast" onClick={toggle}>
+                <SectionLink onClick={currenBtn}>
+                  <LinkNav className="cast" to="cast">
                     Cast
                   </LinkNav>
-                  {/* <LinkNav to="reviews">Reviews</LinkNav> */}
+                  <LinkNav className="trailer" to="trailer">
+                    Trailer
+                  </LinkNav>
+                  {/* <LinkNav className="reviews" to="reviews">
+                    Reviews
+                  </LinkNav> */}
                 </SectionLink>
               </ContainerVote>
               <Overview>{overview}</Overview>
             </WrapperInfo>
-            {isOpen && (
-              <WrapperOutlet flag={isOpen}>
-                <Suspense fallback={'load...'}>
-                  <Outlet />
-                </Suspense>
-              </WrapperOutlet>
-            )}
+
+            <WrapperOutlet flag={isOpen}>
+              <Suspense fallback={'load...'}>
+                <Outlet />
+              </Suspense>
+            </WrapperOutlet>
           </>
         </BgGradient>
       </WrapperBgImg>
