@@ -16,7 +16,12 @@ export const fetchMovieVideos = createAsyncThunk(
         },
       });
 
-      return data.results[0];
+      let trailer = data.results.find(vid => vid.name === 'Official Trailer');
+      if (!trailer) {
+        trailer = data.results[0];
+      }
+
+      return trailer;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

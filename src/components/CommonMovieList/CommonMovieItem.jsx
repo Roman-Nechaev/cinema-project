@@ -24,7 +24,10 @@ import {
   Title,
   WrapperBtnFollowing,
   WrapperProgressbar,
+  PlayIcon,
 } from './CommonMovieItem.styled';
+import { TrailerMovieModal } from '../TrailerMovieModal/TrailerMovieModal';
+import { useToggle } from '../../hooks/useToggle';
 
 export const CommonMovieItem = moviesItem => {
   const { id, title, poster_path, overview, release_date, vote_average } =
@@ -36,6 +39,8 @@ export const CommonMovieItem = moviesItem => {
   const location = useLocation();
   const isWide = useMedia('(min-width: 768px)');
 
+  const { isOpen, toggle } = useToggle();
+
   useEffect(() => {
     setIsFollowing(savedFilmsId.find(item => item.id === id));
   }, [id, savedFilmsId]);
@@ -43,6 +48,7 @@ export const CommonMovieItem = moviesItem => {
   const handleFollowClick = item => {
     dispatch(setFilmsID(item));
   };
+
   return (
     <>
       <ListItem>
@@ -84,7 +90,6 @@ export const CommonMovieItem = moviesItem => {
             {isFollowing ? <BookmarkOk /> : <Bookmark />}
           </WrapperBtnFollowing>
         </WrapperProgressbar>
-
         <LinkSt to={`/movies/${id}`} state={{ from: location }}>
           <ItemImg loading="lazy" src={checkPoster(poster_path)} alt={title} />
           <Details>
@@ -95,6 +100,8 @@ export const CommonMovieItem = moviesItem => {
             {!isWide && <Overview>{formattingOverview(overview)}</Overview>}
           </Details>
         </LinkSt>
+        <PlayIcon onClick={toggle} />
+        {isOpen && <TrailerMovieModal onClose={toggle} onMoviesId={id} />}
       </ListItem>
     </>
   );

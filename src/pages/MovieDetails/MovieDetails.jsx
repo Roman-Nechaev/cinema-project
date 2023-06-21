@@ -27,6 +27,7 @@ import {
   LinkNav,
   ContainerVote,
 } from './MovieDetails.styled';
+
 import {
   selectFilmsIdValue,
   setFilmsID,
@@ -35,6 +36,7 @@ import {
 import 'react-circular-progressbar/dist/styles.css';
 
 import { useToggle } from '../../hooks/useToggle';
+import { Transition } from 'react-transition-group';
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -61,7 +63,9 @@ export const MovieDetails = () => {
 
   useEffect(() => {
     if (!moviesId) return;
+
     setIsFollowing(savedFilmsId.find(item => item.id === id));
+
     dispatch(fetchDetailsMovie(moviesId));
   }, [dispatch, id, moviesId, savedFilmsId]);
 
@@ -70,8 +74,18 @@ export const MovieDetails = () => {
   };
   const { isOpen, toggle } = useToggle();
 
-  const currenBtn = item => {
-    console.log(item.currentTarget.className);
+  const duration = 300;
+
+  const defaultStyle = {
+    transition: `opacity ${duration}ms ease-in-out`,
+    opacity: 0,
+  };
+
+  const transitionStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0 },
+    exited: { opacity: 0 },
   };
 
   return (
@@ -127,14 +141,10 @@ export const MovieDetails = () => {
                     },
                   }}
                 />
-                <SectionLink onClick={currenBtn}>
-                  <LinkNav className="cast" to="cast">
-                    Cast
-                  </LinkNav>
-                  <LinkNav className="trailer" to="trailer">
-                    Trailer
-                  </LinkNav>
-                  {/* <LinkNav className="reviews" to="reviews">
+                <SectionLink onClick={toggle}>
+                  <LinkNav to="cast">Cast</LinkNav>
+                  <LinkNav to="trailer">Trailer</LinkNav>
+                  {/* <LinkNav to="reviews">
                     Reviews
                   </LinkNav> */}
                 </SectionLink>
@@ -142,11 +152,22 @@ export const MovieDetails = () => {
               <Overview>{overview}</Overview>
             </WrapperInfo>
 
-            <WrapperOutlet flag={isOpen}>
-              <Suspense fallback={'load...'}>
-                <Outlet />
-              </Suspense>
-            </WrapperOutlet>
+            <Transition in={isOpen} timeout={duration}>
+              {state => (
+                <div
+                  style={{
+                    ...defaultStyle,
+                    ...transitionStyles[state],
+                  }}
+                >
+                  <WrapperOutlet flag={isOpen}>
+                    <Suspense fallback={'load...'}>
+                      <Outlet />
+                    </Suspense>
+                  </WrapperOutlet>
+                </div>
+              )}
+            </Transition>
           </>
         </BgGradient>
       </WrapperBgImg>

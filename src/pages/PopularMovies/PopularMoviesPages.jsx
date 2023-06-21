@@ -1,11 +1,14 @@
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { MoviesPopularList } from '../../components/MoviesPopularList/MoviesPopularList';
-import { Container, TitlePage } from './PopularMoviesPages.styled';
 import { useSearchParams } from 'react-router-dom';
 import Pagination from 'rc-pagination';
+
+import { MoviesPopularList } from '../../components/MoviesPopularList/MoviesPopularList';
 import { WrapperPagination } from '../../components/MoviesPopularList/MoviesPopularList.styled';
 import { fetchPopMovie } from '../../redux/operations';
-import { useEffect } from 'react';
+
+import { Container, TitlePage } from './PopularMoviesPages.styled';
+
 export const PopularMoviesPages = () => {
   const dispatch = useDispatch();
 

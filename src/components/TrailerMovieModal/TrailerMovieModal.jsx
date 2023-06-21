@@ -1,17 +1,19 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import YouTube from 'react-youtube';
-const modalRoot = document.querySelector('#trailer-root');
 
-import { BackDrop, CloseIcon } from './TrailerMovie.styled';
+import { useRef } from 'react';
+import { useMedia } from 'react-use';
+
+import { BackDrop, CloseIcon } from './TrailerMovieModal.styled';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import { fetchMovieVideos } from '../../redux/movieVideos/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMoviesVideos } from '../../redux/movieVideos/selector';
-import { useRef } from 'react';
-import { useMedia } from 'react-use';
 
-export const TrailerMovie = () => {
+const modalRoot = document.querySelector('#trailer-root');
+
+export const TrailerMovieModal = ({ onClose, onMoviesId }) => {
   const isWide = useMedia('(min-width: 768px)');
   const dispatch = useDispatch();
   const { moviesId } = useParams();
@@ -23,8 +25,15 @@ export const TrailerMovie = () => {
   );
 
   useEffect(() => {
-    dispatch(fetchMovieVideos(moviesId));
-  }, [dispatch, moviesId]);
+    const handleKeyDown = e => {
+      if (e.code === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    dispatch(fetchMovieVideos(onMoviesId));
+  }, [dispatch, onClose, onMoviesId]);
 
   const wide = e => {
     let opt = {
@@ -32,14 +41,15 @@ export const TrailerMovie = () => {
       width: '360',
       playerVars: {
         autoplay: 1,
+        origin: location.pathname,
       },
     };
     if (e) {
       opt = {
-        height: '390',
-        width: '640',
         playerVars: {
           autoplay: 1,
+          origin: location.pathname,
+          autohide: 1,
         },
       };
       return opt;
@@ -47,18 +57,27 @@ export const TrailerMovie = () => {
     return opt;
   };
 
+  const handleBackdropClick = e => {
+    if (e.currentTarget === e.target) {
+      return onClose();
+    }
+  };
+
   return createPortal(
-    <Link to={backLinkLocationRef.current}>
-      <BackDrop>
-        <CloseIcon />
+    // <Link to={backLinkLocationRef.current}>
+    <>
+      <BackDrop onClick={handleBackdropClick}>
+        <CloseIcon onClick={handleBackdropClick} />
         {key ? (
           <YouTube videoId={key.key} opts={wide(isWide)} />
         ) : (
-          <h1>Нет трейлера</h1>
+          <h1>No Trailer</h1>
         )}
       </BackDrop>
-    </Link>,
-
+    </>,
+    // </Link>,
     modalRoot
   );
 };
+
+//

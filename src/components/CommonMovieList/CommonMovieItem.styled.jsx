@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { HiOutlineBookmark, HiOutlineBookmarkAlt } from 'react-icons/hi';
+import {
+  HiOutlineBookmark,
+  HiOutlineBookmarkAlt,
+  HiOutlinePlay,
+} from 'react-icons/hi';
 
 // !
 
@@ -40,6 +44,24 @@ export const BookmarkOk = styled(HiOutlineBookmarkAlt)`
   @media screen and (min-width: 768px) {
     top: 100px;
     left: 5px;
+  }
+`;
+
+export const PlayIcon = styled(HiOutlinePlay)`
+  position: absolute;
+  top: 8px;
+  right: 90px;
+  color: #cfd0d0;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: 0.5s;
+  @media screen and (min-width: 768px) {
+    top: 345px;
+    right: 1px;
+  }
+  :hover {
+    color: #006eff;
   }
 `;
 

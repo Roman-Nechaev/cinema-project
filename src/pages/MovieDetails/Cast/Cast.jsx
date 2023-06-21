@@ -1,10 +1,20 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchRequestCast } from '../../../redux/requestCast/operations';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { selectMoviesCast } from '../../../redux/requestCast/selector';
 import { checkAvatarCast } from '../../../utils/checkAvatarCast';
-import { CastScrolled, Character, Img, LiCard, Name, Ul } from './Cast.styled';
+import {
+  CastScrolled,
+  Character,
+  Img,
+  LiCard,
+  Name,
+  Ul,
+  LinkClose,
+  CloseIcon,
+} from './Cast.styled';
+import { useToggle } from '../../../hooks/useToggle';
 
 export const Cast = () => {
   const dispatch = useDispatch();
@@ -12,6 +22,7 @@ export const Cast = () => {
 
   const location = useLocation();
   const { moviesId } = useParams();
+
   const backLinkLocationRef = useRef(
     location.state?.from ?? `/movies/${moviesId}`
   );
@@ -20,9 +31,13 @@ export const Cast = () => {
     dispatch(fetchRequestCast(moviesId));
   }, [dispatch, moviesId]);
 
+  const { isOpen, toggle } = useToggle();
+
   return (
-    <CastScrolled>
-      <Link to={backLinkLocationRef.current}>X</Link>
+    <CastScrolled flag={isOpen}>
+      <LinkClose to={backLinkLocationRef.current} onClick={toggle}>
+        <CloseIcon />
+      </LinkClose>
       {moviesCast && (
         <Ul>
           {moviesCast.map(({ id, name, character, profile_path }) => (

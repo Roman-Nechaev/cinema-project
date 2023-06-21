@@ -1,11 +1,19 @@
 import styled from '@emotion/styled';
 
-export const CastScrolled = styled.div`
-  position: absolute;
+import { Link } from 'react-router-dom';
 
-  /* top: 150px; */
+import { MdOutlineClose } from 'react-icons/md';
+
+const setFlag = props => {
+  return !props.flag ? 'ani 1s forwards' : 'hide 1s forwards';
+};
+
+export const CastScrolled = styled.div`
+  position: fixed;
+
+  bottom: 30px;
   left: 0;
-  width: 100%;
+  width: 200px;
   padding-left: 40px;
   padding-right: 40px;
 
@@ -15,9 +23,10 @@ export const CastScrolled = styled.div`
 
   width: 100%;
 
-  bottom: -170px;
+  /* bottom: -170px; */
 
-  animation: ani 1s forwards;
+  /* animation: ani 1s forwards; */
+  /* animation: ${setFlag}; */
 
   transform: translateY(50%);
 
@@ -36,9 +45,10 @@ export const CastScrolled = styled.div`
       transform: translateY(0);
     }
     100% {
-      bottom: -10%;
+      bottom: -100%;
 
       transform: translateY(50%);
+      /* opacity: 0; */
     }
   }
 `;
@@ -104,4 +114,23 @@ export const Character = styled.p`
   font-size: 0.9em;
   color: #4e4e4e;
   /* padding-left: 8px; */
+`;
+
+export const LinkClose = styled(Link)`
+  position: absolute;
+  color: #ffffff;
+  top: -50px;
+  right: 90px;
+  text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
+
+  cursor: pointer;
+`;
+
+export const CloseIcon = styled(MdOutlineClose)`
+  width: 40px;
+  height: 40px;
+
+  :hover {
+    color: #0088ff;
+  }
 `;
