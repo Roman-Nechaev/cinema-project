@@ -2,11 +2,10 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import YouTube from 'react-youtube';
 
-import { useRef } from 'react';
 import { useMedia } from 'react-use';
 
 import { BackDrop, CloseIcon } from './TrailerMovieModal.styled';
-import { useLocation, useParams, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { fetchMovieVideos } from '../../redux/movieVideos/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMoviesVideos } from '../../redux/movieVideos/selector';
@@ -16,24 +15,13 @@ const modalRoot = document.querySelector('#trailer-root');
 export const TrailerMovieModal = ({ onClose, onMoviesId }) => {
   const isWide = useMedia('(min-width: 768px)');
   const dispatch = useDispatch();
-  const { moviesId } = useParams();
+
   const location = useLocation();
   const key = useSelector(selectMoviesVideos);
 
-  const backLinkLocationRef = useRef(
-    location.state?.from ?? `/movies/${moviesId}`
-  );
-
   useEffect(() => {
-    const handleKeyDown = e => {
-      if (e.code === 'Escape') {
-        onClose();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
     dispatch(fetchMovieVideos(onMoviesId));
-  }, [dispatch, onClose, onMoviesId]);
+  }, [dispatch, onMoviesId]);
 
   const wide = e => {
     let opt = {
@@ -61,13 +49,13 @@ export const TrailerMovieModal = ({ onClose, onMoviesId }) => {
     if (e.currentTarget === e.target) {
       return onClose();
     }
+    onClose();
   };
 
   return createPortal(
-    // <Link to={backLinkLocationRef.current}>
     <>
       <BackDrop onClick={handleBackdropClick}>
-        <CloseIcon onClick={handleBackdropClick} />
+        <CloseIcon />
         {key ? (
           <YouTube videoId={key.key} opts={wide(isWide)} />
         ) : (
@@ -75,9 +63,6 @@ export const TrailerMovieModal = ({ onClose, onMoviesId }) => {
         )}
       </BackDrop>
     </>,
-    // </Link>,
     modalRoot
   );
 };
-
-//

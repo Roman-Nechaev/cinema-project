@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import YouTube from 'react-youtube';
-const modalRoot = document.querySelector('#trailer-root');
 
 import { BackDrop, CloseIcon } from './TrailerMovie.styled';
 import { useLocation, useParams, Link } from 'react-router-dom';
@@ -11,6 +10,8 @@ import { selectMoviesVideos } from '../../redux/movieVideos/selector';
 import { useRef } from 'react';
 import { useMedia } from 'react-use';
 
+const modalRoot = document.querySelector('#trailer-root');
+
 export const TrailerMovie = () => {
   const isWide = useMedia('(min-width: 768px)');
   const dispatch = useDispatch();
@@ -18,13 +19,13 @@ export const TrailerMovie = () => {
   const location = useLocation();
   const key = useSelector(selectMoviesVideos);
 
-  const backLinkLocationRef = useRef(
-    location.state?.from ?? `/movies/${moviesId}`
-  );
-
   useEffect(() => {
     dispatch(fetchMovieVideos(moviesId));
   }, [dispatch, moviesId]);
+
+  const backLinkLocationRef = useRef(
+    location.state?.from ?? `/movies/${moviesId}`
+  );
 
   const wide = e => {
     let opt = {
@@ -48,16 +49,18 @@ export const TrailerMovie = () => {
   };
 
   return createPortal(
-    <Link to={backLinkLocationRef.current}>
-      <BackDrop>
-        <CloseIcon />
-        {key ? (
-          <YouTube videoId={key.key} opts={wide(isWide)} />
-        ) : (
-          <h1>Нет трейлера</h1>
-        )}
-      </BackDrop>
-    </Link>,
+    <div>
+      <Link to={backLinkLocationRef.current}>
+        <BackDrop>
+          <CloseIcon />
+          {key ? (
+            <YouTube videoId={key.key} opts={wide(isWide)} />
+          ) : (
+            <h1>Нет трейлера</h1>
+          )}
+        </BackDrop>
+      </Link>
+    </div>,
 
     modalRoot
   );

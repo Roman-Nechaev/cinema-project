@@ -49,6 +49,7 @@ export const CommonMovieItem = moviesItem => {
     dispatch(setFilmsID(item));
   };
 
+  console.log('showModal', isOpen);
   return (
     <>
       <ListItem>

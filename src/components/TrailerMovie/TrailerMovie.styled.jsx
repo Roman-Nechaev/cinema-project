@@ -12,7 +12,7 @@ export const BackDrop = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1200;
-
+  cursor: pointer;
   overflow: hidden;
 `;
 
@@ -21,10 +21,14 @@ export const CloseIcon = styled(MdOutlineClose)`
   width: 35px;
   height: 35px;
 
-  top: -230px;
+  top: -210px;
   left: 40px;
-
+  cursor: pointer;
   color: #ffffff;
+  transition: 0.5s;
+  @media screen and (max-width: 768px) {
+    top: -170px;
+  }
   :hover {
     color: #0088ff;
   }
