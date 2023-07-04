@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import YouTube from 'react-youtube';
 
-import { BackDrop, CloseIcon } from './TrailerMovie.styled';
+import { BackDrop, CloseIcon } from './TrailerMovieModal.styled';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import { fetchMovieVideos } from '../../redux/movieVideos/operations';
 import { useDispatch, useSelector } from 'react-redux';

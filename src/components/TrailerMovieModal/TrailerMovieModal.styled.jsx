@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { MdOutlineClose } from 'react-icons/md';
+
+import { GiCrossMark } from 'react-icons/gi';
 
 export const BackDrop = styled.div`
   position: fixed;
@@ -16,13 +17,14 @@ export const BackDrop = styled.div`
   overflow: hidden;
 `;
 
-export const CloseIcon = styled(MdOutlineClose)`
+export const CloseIcon = styled(GiCrossMark)`
   position: relative;
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
 
-  top: -210px;
-  left: 40px;
+  top: -230px;
+  left: 20px;
   cursor: pointer;
   color: #ffffff;
   transition: 0.5s;
@@ -30,6 +32,7 @@ export const CloseIcon = styled(MdOutlineClose)`
     top: -170px;
   }
   :hover {
-    color: #0088ff;
+    background-color: #0088ff;
+    color: #00ff95;
   }
 `;

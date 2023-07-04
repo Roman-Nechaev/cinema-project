@@ -11,7 +11,7 @@ import { PopularMoviesPages } from './pages/PopularMovies/PopularMoviesPages';
 import './App.css';
 import { Cast } from './pages/MovieDetails/Cast/Cast';
 import { Reviews } from './pages/MovieDetails/Reviews/Reviews';
-import { TrailerMovie } from './components/TrailerMovie/TrailerMovie';
+import { TrailerMovie } from './components/TrailerMovieModal/TrailerMovie';
 
 function App() {
   return (
