@@ -49,7 +49,6 @@ export const CommonMovieItem = moviesItem => {
     dispatch(setFilmsID(item));
   };
 
-  console.log('showModal', isOpen);
   return (
     <>
       <ListItem>
@@ -98,6 +97,7 @@ export const CommonMovieItem = moviesItem => {
               <Title>{title}</Title>
               <Date>{release_date}</Date>
             </div>
+
             {!isWide && <Overview>{formattingOverview(overview)}</Overview>}
           </Details>
         </LinkSt>
