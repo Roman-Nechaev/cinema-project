@@ -6,16 +6,16 @@ import { API_KEY } from '../../KEY/movieKey';
 
 export const fetchMovieVideos = createAsyncThunk(
   'movie/moviesTrailer',
-  async (movie_Id, thunkAPI) => {
+  async (data, thunkAPI) => {
+    const { movie_Id, lang } = data;
     try {
       const { data } = await axios.get(`/movie/${movie_Id}/videos`, {
         params: {
           api_key: API_KEY,
-          // language: 'ru-RU',
-          // language: 'uk-UK',
+          language: lang,
         },
       });
-
+      console.log(data);
       let trailer = data.results.find(vid => vid.name === 'Official Trailer');
       if (!trailer) {
         trailer = data.results[0];

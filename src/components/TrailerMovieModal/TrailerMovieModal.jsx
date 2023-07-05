@@ -9,19 +9,22 @@ import { useLocation } from 'react-router-dom';
 import { fetchMovieVideos } from '../../redux/movieVideos/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectMoviesVideos } from '../../redux/movieVideos/selector';
+import { useTranslation } from 'react-i18next';
 
 const modalRoot = document.querySelector('#trailer-root');
 
 export const TrailerMovieModal = ({ onClose, onMoviesId }) => {
   const isWide = useMedia('(min-width: 768px)');
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const location = useLocation();
   const key = useSelector(selectMoviesVideos);
 
   useEffect(() => {
-    dispatch(fetchMovieVideos(onMoviesId));
-  }, [dispatch, onMoviesId]);
+    const lang = t('language');
+    dispatch(fetchMovieVideos({ movie_Id: onMoviesId, lang }));
+  }, [dispatch, onMoviesId, t]);
 
   const wide = e => {
     let opt = {

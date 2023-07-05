@@ -18,10 +18,12 @@ import {
   Wrapper,
 } from './Search.styled';
 import scrollToTop from '../../utils/scrollToTop';
+import { useTranslation } from 'react-i18next';
 
 export const Search = () => {
   const dispatch = useDispatch();
   const totalFilms = useSelector(selectMoviesTotal);
+  const { t } = useTranslation();
 
   const handleSubmit = ({ values }, actions) => {
     if (values.trim() === '') {
@@ -48,8 +50,10 @@ export const Search = () => {
     }
     scrollToTop();
 
-    dispatch(fetchSearchMovie({ search: queryMovies, page: pageMovies }));
-  }, [dispatch, pageMovies, queryMovies, setSearchParams]);
+    const lang = t('language');
+
+    dispatch(fetchSearchMovie({ search: queryMovies, page: pageMovies, lang }));
+  }, [dispatch, pageMovies, queryMovies, setSearchParams, t]);
 
   return (
     <Wrapper>
@@ -62,7 +66,7 @@ export const Search = () => {
               type="text"
               autoComplete="off"
               autoFocus
-              placeholder="Find a movie"
+              placeholder={t('Find')}
             />
           </FormsSt>
         </Formik>

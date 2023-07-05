@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectMoviesVideos } from '../../redux/movieVideos/selector';
 import { useRef } from 'react';
 import { useMedia } from 'react-use';
+import { useTranslation } from 'react-i18next';
 
 const modalRoot = document.querySelector('#trailer-root');
 
@@ -18,10 +19,12 @@ export const TrailerMovie = () => {
   const { moviesId } = useParams();
   const location = useLocation();
   const key = useSelector(selectMoviesVideos);
+  const { t } = useTranslation();
 
   useEffect(() => {
-    dispatch(fetchMovieVideos(moviesId));
-  }, [dispatch, moviesId]);
+    const lang = t('language');
+    dispatch(fetchMovieVideos({ movie_Id: moviesId, lang }));
+  }, [dispatch, moviesId, t]);
 
   const backLinkLocationRef = useRef(
     location.state?.from ?? `/movies/${moviesId}`
