@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef, useState, Suspense } from 'react';
 import { useLocation, useParams, Outlet } from 'react-router-dom';
 import { CircularProgressbar } from 'react-circular-progressbar';
+import { useTranslation } from 'react-i18next';
+
 import { selectMoviesDetails } from '../../redux/movieDetails/selector';
 import { fetchDetailsMovie } from '../../redux/movieDetails/operations';
 import checkPoster from '../../utils/checkPoster';
@@ -37,12 +39,13 @@ import 'react-circular-progressbar/dist/styles.css';
 
 import { useToggle } from '../../hooks/useToggle';
 import { Transition } from 'react-transition-group';
+import scrollToTop from '../../utils/scrollToTop';
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
   const moviesDetails = useSelector(selectMoviesDetails);
   const savedFilmsId = useSelector(selectFilmsIdValue);
-
+  const { t } = useTranslation();
   const location = useLocation();
   const { moviesId } = useParams();
   const beckLinkLocationRef = useRef(location.state?.from ?? '/movies');
@@ -64,10 +67,12 @@ export const MovieDetails = () => {
   useEffect(() => {
     if (!moviesId) return;
 
-    setIsFollowing(savedFilmsId.find(item => item.id === id));
+    scrollToTop();
 
-    dispatch(fetchDetailsMovie(moviesId));
-  }, [dispatch, id, moviesId, savedFilmsId]);
+    setIsFollowing(savedFilmsId.find(item => item.id === id));
+    const lang = t('language');
+    dispatch(fetchDetailsMovie({ moviesId, lang }));
+  }, [dispatch, id, moviesId, savedFilmsId, t]);
 
   const handleFollowClick = item => {
     dispatch(setFilmsID(item));
@@ -107,7 +112,7 @@ export const MovieDetails = () => {
               <Title>{title}</Title>
               {genres && (
                 <Genres>
-                  Genres: <span>{convertGenres(genres)}</span>
+                  {t('Genres')}: <span>{convertGenres(genres)}</span>
                 </Genres>
               )}
 
@@ -142,8 +147,8 @@ export const MovieDetails = () => {
                   }}
                 />
                 <SectionLink onClick={toggle}>
-                  <LinkNav to="cast">Cast</LinkNav>
-                  <LinkNav to="trailer">Trailer</LinkNav>
+                  <LinkNav to="cast">{t('Cast')}</LinkNav>
+                  <LinkNav to="trailer">{t('Trailer')}</LinkNav>
                   {/* <LinkNav to="reviews">
                     Reviews
                   </LinkNav> */}

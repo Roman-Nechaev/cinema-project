@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { moviesReducer } from './moviesSlice';
+import { moviesReducer } from './PopularMovie/moviesSlice';
 import { moviesDetailsReducer } from './movieDetails/movieDetailsSlice';
 import { moviesSearchReducer } from './movieSearch/movieDetailsSlice';
 import { filmsIdReducer } from './savedFilmsId/savedFilmsIdSlice';

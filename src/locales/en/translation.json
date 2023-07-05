@@ -1,0 +1,26 @@
+{
+  "PopularMovies": "Popular Movies",
+  "language": "en-US",
+  "Home": "Home",
+  "Popular": "Popular",
+  "Search": "Search",
+  "Favorites": "Favorites",
+
+  "Genres": "Genres",
+  "Cast": "Cast",
+  "Trailer": "Trailer",
+
+  "Log In": "Log In",
+  "Sign Up": "Sign Up",
+  "Login": "Login",
+  "Email": "Email",
+  "Password": "Login",
+  "Sign In": "Sign In",
+  "Name": "Name",
+  "Number": "Number",
+  "Contacts": "Contacts",
+  "Info": "Info",
+  "Quantity yours contacts": "Quantity yours contacts",
+  "Find contacts by name": "Find contacts by name:",
+  "You dont have any contacts": "You don't have any contacts."
+}

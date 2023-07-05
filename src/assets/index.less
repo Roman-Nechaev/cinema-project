@@ -1,13 +1,13 @@
 @pagination-prefix-cls: rc-pagination;
 
-@primary-color: #1890ff;
-@pagination-item-bg: #fff;
-@pagination-item-size: 28px;
+@primary-color: #ffffff;
+@pagination-item-bg: #1e263d;
+@pagination-item-size: 48px;
 @pagination-item-size-sm: 24px;
 @pagination-font-family: Arial;
-@pagination-font-weight-active: 500;
-@pagination-item-bg-active: #fff;
-@pagination-item-link-bg: #fff;
+@pagination-font-weight-active: 700;
+@pagination-item-bg-active: #3657cb;
+@pagination-item-link-bg: #1e263d;
 @pagination-item-disabled-color-active: #fff;
 @pagination-item-disabled-bg-active: darken(hsv(0, 0, 96%), 10%);
 @pagination-item-input-bg: #fff;
@@ -42,6 +42,8 @@
   }
 
   &-item {
+    width: 73px;
+    height: 73px;
     display: inline-block;
     min-width: @pagination-item-size;
     height: @pagination-item-size;
@@ -52,8 +54,8 @@
     vertical-align: middle;
     list-style: none;
     background-color: @pagination-item-bg;
-    border: 1px solid #d9d9d9;
-    border-radius: 2px;
+    border: none;
+    border-radius: 15px;
     outline: 0;
     cursor: pointer;
     user-select: none;
@@ -61,7 +63,7 @@
     a {
       display: block;
       padding: 0 6px;
-      color: rgba(0, 0, 0, 0.85);
+      color: rgba(255, 255, 255, 0.85);
       transition: none;
 
       &:hover {
@@ -157,13 +159,14 @@
       display: block;
       width: 100%;
       height: 100%;
-      font-size: 12px;
+      font-size: 22px;
       text-align: center;
       background-color: @pagination-item-link-bg;
-      border: 1px solid #d9d9d9;
-      border-radius: 2px;
+      border: none;
+      border-radius: 20px;
       outline: none;
       transition: all 0.3s;
+      color: #ffffff;
     }
 
     &:focus .@{pagination-prefix-cls}-item-link,

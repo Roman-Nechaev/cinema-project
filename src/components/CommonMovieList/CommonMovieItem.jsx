@@ -82,14 +82,14 @@ export const CommonMovieItem = moviesItem => {
               },
             }}
           />
-          <WrapperBtnFollowing
-            onClick={() => {
-              handleFollowClick(moviesItem);
-            }}
-          >
-            {isFollowing ? <BookmarkOk /> : <Bookmark />}
-          </WrapperBtnFollowing>
         </WrapperProgressbar>
+        <WrapperBtnFollowing
+          onClick={() => {
+            handleFollowClick(moviesItem);
+          }}
+        >
+          {isFollowing ? <BookmarkOk /> : <Bookmark />}
+        </WrapperBtnFollowing>
         <LinkSt to={`/movies/${id}`} state={{ from: location }}>
           <ItemImg loading="lazy" src={checkPoster(poster_path)} alt={title} />
           <Details>

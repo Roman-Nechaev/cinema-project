@@ -17,7 +17,8 @@ export const Background = styled.div`
   /* background-size: cover; */
   /* text-align: center; */
   /* position: relative; */
-  min-height: 660px;
+  min-height: 900px;
+
   background-color: #0a192f;
 `;
 

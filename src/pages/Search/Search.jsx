@@ -17,6 +17,7 @@ import {
   Input,
   Wrapper,
 } from './Search.styled';
+import scrollToTop from '../../utils/scrollToTop';
 
 export const Search = () => {
   const dispatch = useDispatch();
@@ -45,6 +46,8 @@ export const Search = () => {
       setSearchParams();
       return;
     }
+    scrollToTop();
+
     dispatch(fetchSearchMovie({ search: queryMovies, page: pageMovies }));
   }, [dispatch, pageMovies, queryMovies, setSearchParams]);
 
@@ -71,7 +74,7 @@ export const Search = () => {
         <WrapperPagination>
           <Pagination
             onChange={onChange}
-            current={pageMovies}
+            current={+pageMovies}
             total={Math.round(totalFilms / 2)}
           />
         </WrapperPagination>

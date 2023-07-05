@@ -18,8 +18,9 @@ export const MobilAppBar = () => {
         </Link>
       </div>
       <div>
-        {/* <UserIcon /> */}
-        <SearchIcon />
+        <Link to="/search">
+          <SearchIcon />
+        </Link>
       </div>
     </>
   );

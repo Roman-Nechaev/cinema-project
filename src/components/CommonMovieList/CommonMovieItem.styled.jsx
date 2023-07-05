@@ -7,42 +7,35 @@ import {
 } from 'react-icons/hi';
 
 export const WrapperBtnFollowing = styled.div`
-  /* position: absolute; */
+  position: absolute;
+  top: -2px;
+  right: 50px;
+  @media screen and (min-width: 768px) {
+    top: 373px;
+    right: 2px;
+  }
 `;
 
 export const Bookmark = styled(HiOutlineBookmark)`
-  position: absolute;
-  top: -8px;
-  left: -40px;
   color: #ffffff;
   width: 25px;
   height: 25px;
   transition: 0.5s;
 
   cursor: pointer;
-  @media screen and (min-width: 768px) {
-    top: 111px;
-    left: 18px;
-  }
+
   :hover {
     color: #3cd95b;
   }
 `;
 
 export const BookmarkOk = styled(HiOutlineBookmarkAlt)`
-  position: absolute;
-  top: -8px;
-  left: -40px;
   color: #ffffff;
   width: 25px;
   height: 25px;
   cursor: pointer;
   transition: 0.5s;
 
-  @media screen and (min-width: 768px) {
-    top: 111px;
-    left: 18px;
-  }
   :hover {
     color: #ff3300;
   }
@@ -160,7 +153,11 @@ export const Title = styled.h2`
 
 export const WrapperProgressbar = styled.div`
   position: absolute;
-  bottom: 90px;
+  bottom: 115px;
   right: -3px;
-  /* bottom: 100%; */
+
+  @media screen and (min-width: 768px) {
+    bottom: 90px;
+    right: -3px;
+  }
 `;

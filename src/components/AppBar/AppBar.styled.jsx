@@ -16,16 +16,20 @@ export const ImgBg = styled.img`
 
 export const Header = styled.header`
   /* border: 1px solid #40ff00; */
-  position: absolute;
+
+  position: fixed;
   display: flex;
-  padding: 10px 20px;
+  padding: 20px 30px;
   justify-content: space-between;
-  z-index: 99;
+
   width: 100%;
-  /* height: 65px; */
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.085);
+  backdrop-filter: blur(3px);
+
   align-items: center;
   @media screen and (min-width: 768px) {
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
   }
 `;
 
@@ -59,8 +63,12 @@ export const LogoImg = styled.img`
 
 export const NavigateList = styled.nav`
   margin-left: 20px;
-  /* flex: 1 1 auto; */
+  /* display: flex; */
+  /* justify-content: end; */
   /* z-index: 1; */
+  & .active {
+    color: #ff0000;
+  }
 `;
 
 export const NavLinks = styled(NavLink)`
