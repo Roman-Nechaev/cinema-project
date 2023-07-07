@@ -41,6 +41,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import { useToggle } from '../../hooks/useToggle';
 import { Transition } from 'react-transition-group';
 import scrollToTop from '../../utils/scrollToTop';
+import checkBackdropImage from '../../utils/checkBackdropImage';
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,8 @@ export const MovieDetails = () => {
     vote_average,
   } = moviesDetails;
 
+  console.log('backdrop_path', backdrop_path);
+  console.log('poster_path', poster_path);
   const voteAverage = Math.ceil(vote_average * 10);
 
   useEffect(() => {
@@ -97,9 +100,7 @@ export const MovieDetails = () => {
 
   return (
     <WrapperCards>
-      <WrapperBgImg
-        img={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
-      >
+      <WrapperBgImg img={checkBackdropImage(poster_path, backdrop_path)}>
         <BgGradient>
           <LinkBack to={beckLinkLocationRef.current}>Go BACK</LinkBack>
           <>

@@ -17,6 +17,7 @@ export const WrapperBgImg = styled.div`
   min-width: 100%;
   min-height: 100%;
   z-index: 99;
+
   background-color: #0a192f;
 
   border-bottom: 1px solid rgb(67, 67, 67);

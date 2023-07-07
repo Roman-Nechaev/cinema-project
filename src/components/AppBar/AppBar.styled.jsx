@@ -66,12 +66,21 @@ export const NavigateList = styled.nav`
   /* display: flex; */
   /* justify-content: end; */
   /* z-index: 1; */
+  font-size: 1.3em;
   & .active {
-    color: #ff0000;
+    /* color: #56e6d5; */
+
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #56e6d5,
+      0 0 30px #56e6d5, 0 0 40px #56e6d5, 0 0 55px #56e6d5, 0 0 75px #56e6d5;
   }
 `;
 
 export const NavLinks = styled(NavLink)`
   color: #ffffff;
   margin-left: 10px;
+  transition: all 0.5s;
+
+  :hover {
+    color: #56e6d5;
+  }
 `;

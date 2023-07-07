@@ -16,6 +16,7 @@ import {
   FormsSt,
   Input,
   Wrapper,
+  SearchIcon,
 } from './Search.styled';
 import scrollToTop from '../../utils/scrollToTop';
 import { useTranslation } from 'react-i18next';
@@ -60,7 +61,9 @@ export const Search = () => {
       <ContainerForm>
         <Formik initialValues={{ values: queryMovies }} onSubmit={handleSubmit}>
           <FormsSt>
-            <Button type="submit"></Button>
+            <Button type="submit">
+              <SearchIcon />
+            </Button>
             <Input
               name="values"
               type="text"
