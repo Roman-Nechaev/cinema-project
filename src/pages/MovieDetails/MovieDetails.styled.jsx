@@ -6,7 +6,6 @@ export const WrapperCards = styled.div`
   position: relative;
   top: 0;
   display: flex;
-
   min-height: 500px;
   @media screen and (min-width: 768px) {
     min-height: 800px;
@@ -17,6 +16,8 @@ export const WrapperBgImg = styled.div`
   display: flex;
   min-width: 100%;
   min-height: 100%;
+  z-index: 99;
+  background-color: #0a192f;
 
   border-bottom: 1px solid rgb(67, 67, 67);
   background-size: cover;
@@ -26,6 +27,7 @@ export const WrapperBgImg = styled.div`
   background-image: ${props => `url(${props.img})`};
 
   @media screen and (min-width: 768px) {
+    z-index: 1;
     background-position: left calc((50vw - 170px) - 340px) top;
   }
 `;

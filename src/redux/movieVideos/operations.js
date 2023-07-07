@@ -15,7 +15,6 @@ export const fetchMovieVideos = createAsyncThunk(
           language: lang,
         },
       });
-      console.log(data);
       let trailer = data.results.find(vid => vid.name === 'Official Trailer');
       if (!trailer) {
         trailer = data.results[0];

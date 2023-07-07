@@ -5,6 +5,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import { useTranslation } from 'react-i18next';
 
 import { selectMoviesDetails } from '../../redux/movieDetails/selector';
+
 import { fetchDetailsMovie } from '../../redux/movieDetails/operations';
 import checkPoster from '../../utils/checkPoster';
 
@@ -44,6 +45,7 @@ import scrollToTop from '../../utils/scrollToTop';
 export const MovieDetails = () => {
   const dispatch = useDispatch();
   const moviesDetails = useSelector(selectMoviesDetails);
+
   const savedFilmsId = useSelector(selectFilmsIdValue);
   const { t } = useTranslation();
   const location = useLocation();

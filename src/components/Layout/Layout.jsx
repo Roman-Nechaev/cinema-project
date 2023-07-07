@@ -1,9 +1,9 @@
-import { Background, Container } from './Layout.styled';
-
 import { AppBar } from '../AppBar/AppBar';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { BtnLocales } from '../BtnLocales/BtnLocales';
+
+import { Background, Container } from './Layout.styled';
 
 export const Layout = () => {
   return (

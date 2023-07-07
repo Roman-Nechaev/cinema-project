@@ -12,6 +12,7 @@ const rejectedReducer = (state, action) => {
 
 const fulfilledReducer = state => {
   state.isLoading = false;
+
   state.error = null;
 };
 
@@ -24,6 +25,7 @@ const moviesSlice = createSlice({
   initialState: {
     items: [],
     isLoading: false,
+
     error: null,
   },
   extraReducers: builder =>
@@ -31,6 +33,7 @@ const moviesSlice = createSlice({
       .addCase(fetchDetailsMovie.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+
         state.items = action.payload;
       })
 
