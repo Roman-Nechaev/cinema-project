@@ -1,27 +1,41 @@
-import { useToggle } from '../../../hooks/useToggle';
-import { MobilMenu } from '../../MobilMenu/MobilMenu';
 import { Link } from 'react-router-dom';
 
 import ffLogo from '../../../assets/logo/ff.png';
 
-import { BurgerMenu, LogoImg, SearchIcon } from './MobilAppBar.styled';
+import {
+  LogoImg,
+  ManageSearch,
+  HomeIcon,
+  NavigateList,
+  NavLinks,
+  FavoriteIcon,
+  AccountsIcon,
+} from './MobilAppBar.styled';
 
 export const MobilAppBar = () => {
-  const { isOpen, open, close } = useToggle();
+  // const { isOpen, open, close } = useToggle();
   return (
     <>
-      {isOpen && <MobilMenu onClose={close} />}
-      <BurgerMenu onClick={open} />
-      <div>
-        <Link to="/">
-          <LogoImg src={ffLogo} alt="logo" />
-        </Link>
-      </div>
-      <div>
-        <Link to="/search">
-          <SearchIcon />
-        </Link>
-      </div>
+      <NavigateList>
+        <NavLinks to="/popular">
+          <HomeIcon />
+        </NavLinks>
+
+        <NavLinks to="/search">
+          <ManageSearch />
+        </NavLinks>
+        <div>
+          <Link to="/">
+            <LogoImg src={ffLogo} alt="logo" />
+          </Link>
+        </div>
+        <NavLinks to="/favorites">
+          <FavoriteIcon />
+        </NavLinks>
+        <NavLinks to="home">
+          <AccountsIcon />
+        </NavLinks>
+      </NavigateList>
     </>
   );
 };

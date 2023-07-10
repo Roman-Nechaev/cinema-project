@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+
 import {
-  HiOutlineBookmark,
-  HiOutlineBookmarkAlt,
-  HiOutlinePlay,
-} from 'react-icons/hi';
+  MdOutlineBookmarkBorder,
+  MdOutlineBookmark,
+  MdSlowMotionVideo,
+} from 'react-icons/md';
 
 export const WrapperBtnFollowing = styled.div`
   position: absolute;
@@ -16,7 +17,7 @@ export const WrapperBtnFollowing = styled.div`
   }
 `;
 
-export const Bookmark = styled(HiOutlineBookmark)`
+export const Bookmark = styled(MdOutlineBookmarkBorder)`
   color: #ffffff;
   width: 25px;
   height: 25px;
@@ -29,7 +30,7 @@ export const Bookmark = styled(HiOutlineBookmark)`
   }
 `;
 
-export const BookmarkOk = styled(HiOutlineBookmarkAlt)`
+export const BookmarkOk = styled(MdOutlineBookmark)`
   color: #ffffff;
   width: 25px;
   height: 25px;
@@ -51,13 +52,13 @@ export const ItemImg = styled.img`
   }
 `;
 
-export const PlayIcon = styled(HiOutlinePlay)`
+export const PlayIcon = styled(MdSlowMotionVideo)`
   position: absolute;
-  top: -10px;
+  top: -15px;
   right: 90px;
   color: #cfd0d0;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   transition: 0.5s;
 
@@ -103,7 +104,7 @@ export const LinkSt = styled(Link)`
     box-shadow: 0px 6px 22px 3px rgba(0, 208, 255, 0.73); */
     + ${PlayIcon} {
       opacity: 1;
-      color: #e1af0e;
+      /* color: #e1af0e; */
     }
   }
 `;
@@ -120,8 +121,8 @@ export const ListItem = styled.li`
     background-color: #00619a;
     box-shadow: 0px 6px 22px 3px rgba(0, 208, 255, 0.73);
     + ${PlayIcon} {
-      opacity: 1;
-      color: #e1af0e;
+      /* opacity: 1; */
+      /* color: #e1af0e; */
     }
   }
 `;
@@ -157,7 +158,7 @@ export const WrapperProgressbar = styled.div`
   right: -3px;
 
   @media screen and (min-width: 768px) {
-    bottom: 90px;
-    right: -3px;
+    bottom: 79px;
+    right: -10px;
   }
 `;

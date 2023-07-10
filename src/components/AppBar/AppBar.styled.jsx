@@ -18,7 +18,7 @@ export const Header = styled.header`
   /* border: 1px solid #40ff00; */
 
   position: fixed;
-  display: flex;
+
   padding: 20px 30px;
   justify-content: space-between;
 
@@ -29,7 +29,7 @@ export const Header = styled.header`
 
   align-items: center;
   @media screen and (min-width: 768px) {
-    /* justify-content: flex-start; */
+    display: flex;
   }
 `;
 
@@ -62,11 +62,12 @@ export const LogoImg = styled.img`
 `;
 
 export const NavigateList = styled.nav`
-  margin-left: 20px;
+  /* margin-left: 20px; */
   /* display: flex; */
   /* justify-content: end; */
   /* z-index: 1; */
-  font-size: 1.3em;
+
+  /* font-size: 1.3em; */
   & .active {
     /* color: #56e6d5; */
 
