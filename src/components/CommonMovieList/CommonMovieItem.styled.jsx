@@ -149,7 +149,7 @@ export const Overview = styled.p`
 export const Title = styled.h2`
   font-size: 1em;
   color: #ffffff;
-  /* margin-bottom: 5px; */
+  margin-bottom: 3px;
 `;
 
 export const WrapperProgressbar = styled.div`

@@ -2,20 +2,37 @@ import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { HiOutlineBookmark, HiOutlineBookmarkAlt } from 'react-icons/hi';
 
+import {
+  MdOutlineClose,
+  MdOutlineCancel,
+  MdOutlineAssistantDirection,
+  MdArrowBackIosNew,
+  MdOutlineGTranslate,
+  MdGTranslate,
+  MdClose,
+  MdOutlineBookmarkBorder,
+  MdOutlineBookmark,
+  MdSlowMotionVideo,
+} from 'react-icons/md';
+
 export const WrapperCards = styled.div`
   position: relative;
   top: 0;
   display: flex;
   min-height: 500px;
+  min-height: 100vh;
   @media screen and (min-width: 768px) {
-    min-height: 800px;
+    /* min-height: 800px; */
+    min-height: 100vh;
   }
 `;
 
 export const WrapperBgImg = styled.div`
   display: flex;
   min-width: 100%;
-  min-height: 100%;
+
+  min-height: 100vh;
+
   z-index: 99;
 
   background-color: #0a192f;
@@ -29,7 +46,7 @@ export const WrapperBgImg = styled.div`
 
   @media screen and (min-width: 768px) {
     z-index: 1;
-    background-position: left calc((50vw - 170px) - 340px) top;
+    background-position: left calc((50vw - 170px) - 440px) top;
   }
 `;
 
@@ -136,12 +153,12 @@ export const LinkBack = styled(Link)`
   cursor: pointer;
 `;
 
-export const Bookmark = styled(HiOutlineBookmark)`
+export const Bookmark = styled(MdOutlineBookmarkBorder)`
   position: absolute;
   right: 15px;
   color: #ffffff;
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 30px;
@@ -149,12 +166,12 @@ export const Bookmark = styled(HiOutlineBookmark)`
   }
 `;
 
-export const BookmarkOk = styled(HiOutlineBookmarkAlt)`
+export const BookmarkOk = styled(MdOutlineBookmark)`
   position: absolute;
   right: 15px;
   color: #ffffff;
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 30px;
@@ -171,72 +188,6 @@ export const WrapperBookmark = styled.div`
     left: -280px;
   }
 `;
-
-// const setFlag = props => {
-//   return props.flag ? 'ani 1s forwards' : 'hide 1s forwards';
-// };
-
-// export const WrapperOutlet = styled.div`
-// position: absolute;
-
-// width: 100%;
-
-// bottom: 150px;
-
-// /* animation: ${setFlag}; */
-
-// transform: translateY(50%);
-
-// @keyframes ani {
-//   0% {
-//     bottom: -10%;
-
-//     transform: translateY(50%);
-//   }
-//   100% {
-//     transform: translateY(0);
-//   }
-// }
-// @keyframes hide {
-//   0% {
-//     transform: translateY(0);
-//   }
-//   100% {
-//     bottom: -10%;
-
-//     transform: translateY(50%);
-//   }
-// }
-//   @media screen and (min-width: 768px) {
-//     position: relative;
-
-//     bottom: -170px;
-
-//     /* animation: ${setFlag}; */
-
-//     transform: translateY(50%);
-
-//     @keyframes ani {
-//       0% {
-//         bottom: -100%;
-//         transform: translateY(50%);
-//       }
-//       100% {
-//         transform: translateY(0);
-//       }
-//     }
-//     @keyframes hide {
-//       0% {
-//         transform: translateY(0);
-//       }
-//       100% {
-//         bottom: -50%;
-
-//         transform: translateY(50%);
-//       }
-//     }
-//   }
-// `;
 
 export const WrapperOutlet = styled.div``;
 
@@ -276,7 +227,7 @@ export const ContainerVote = styled.div`
   display: flex;
   align-items: center;
   /* margin-top: 10px; */
-  margin-left: 15px;
+  /* margin-left: 15px; */
   position: fixed;
   bottom: 0;
   left: 0;

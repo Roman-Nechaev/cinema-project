@@ -24,11 +24,11 @@ export const MobilAppBar = () => {
         <NavLinks to="/search">
           <ManageSearch />
         </NavLinks>
-        <div>
-          <Link to="/">
-            <LogoImg src={ffLogo} alt="logo" />
-          </Link>
-        </div>
+
+        <Link to="/">
+          <LogoImg src={ffLogo} alt="logo" />
+        </Link>
+
         <NavLinks to="/favorites">
           <FavoriteIcon />
         </NavLinks>
