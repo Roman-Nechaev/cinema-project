@@ -21,7 +21,7 @@ export const Header = styled.header`
 
   padding: 20px 30px;
   justify-content: space-between;
-
+  bottom: 0;
   width: 100%;
   z-index: 99;
   background: rgba(255, 255, 255, 0.085);
@@ -30,6 +30,7 @@ export const Header = styled.header`
   align-items: center;
   @media screen and (min-width: 768px) {
     display: flex;
+    bottom: auto;
   }
 `;
 
