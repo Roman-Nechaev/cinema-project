@@ -1,10 +1,10 @@
 import { FavoriteList } from '../../components/FavoritesList/FavoriteList';
+import { Container } from '../PopularMovies/PopularMoviesPages.styled';
 
 export const Favorites = () => {
   return (
-    <>
-      <h1>Favorites Page</h1>
+    <Container>
       <FavoriteList />
-    </>
+    </Container>
   );
 };

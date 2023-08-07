@@ -49,13 +49,14 @@ export const Search = () => {
       setSearchParams();
       return;
     }
+
     scrollToTop();
 
     const lang = t('language');
 
     dispatch(fetchSearchMovie({ search: queryMovies, page: pageMovies, lang }));
   }, [dispatch, pageMovies, queryMovies, setSearchParams, t]);
-
+  console.log('totalFilms', totalFilms);
   return (
     <Wrapper>
       <ContainerForm>

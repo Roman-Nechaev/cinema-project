@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
 import { HiSearch } from 'react-icons/hi';
+import { MdSortByAlpha } from 'react-icons/md';
 
 // import { HiOutlineBookmark, HiOutlineBookmarkAlt } from 'react-icons/hi';
 
@@ -67,6 +68,25 @@ export const Button = styled.button`
   }
 `;
 
+export const ButtonSort = styled.button`
+  display: inline-block;
+  position: absolute;
+
+  right: 20px;
+
+  border: none;
+  outline: none;
+
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  background-color: transparent;
+
+  cursor: pointer;
+  :hover {
+    opacity: 1;
+  }
+`;
+
 export const ContainerForm = styled.div`
   /* border-bottom: 2px solid rgb(181, 181, 181); */
 `;
@@ -76,7 +96,18 @@ export const SearchIcon = styled(HiSearch)`
   width: 22px;
   height: 22px;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s;
+  :hover {
+    color: #b9f8f2;
+  }
+`;
 
+export const SortIcon = styled(MdSortByAlpha)`
+  color: #ffffff;
+  width: 22px;
+  height: 22px;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s;
   :hover {
     color: #b9f8f2;
   }

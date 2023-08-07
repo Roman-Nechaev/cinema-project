@@ -1,21 +1,10 @@
 import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { HiOutlineBookmark, HiOutlineBookmarkAlt } from 'react-icons/hi';
 
-import {
-  MdOutlineClose,
-  MdOutlineCancel,
-  MdOutlineAssistantDirection,
-  MdArrowBackIosNew,
-  MdOutlineGTranslate,
-  MdGTranslate,
-  MdClose,
-  MdOutlineBookmarkBorder,
-  MdOutlineBookmark,
-  MdSlowMotionVideo,
-} from 'react-icons/md';
+import { MdOutlineBookmarkBorder, MdOutlineBookmark } from 'react-icons/md';
 
 export const WrapperCards = styled.div`
+  overflow: hidden;
   position: relative;
   top: 0;
   display: flex;
@@ -51,14 +40,21 @@ export const WrapperBgImg = styled.div`
 `;
 
 export const BgGradient = styled.div`
+  overflow: hidden;
   @media screen and (min-width: 768px) {
     min-width: 100%;
     min-height: 100%;
-    background-image: linear-gradient(
+    /* background-image: linear-gradient(
       to right,
       rgba(52.5, 52.5, 73.5, 1) calc((50vw - 170px) - 340px),
       rgba(52.5, 52.5, 73.5, 0.84) 50%,
       rgba(52.5, 52.5, 73.5, 0.84) 100%
+    ); */
+    background-image: linear-gradient(
+      to right,
+      rgba(31.5, 31.5, 31.5, 1) calc((50vw - 170px) - 340px),
+      rgba(31.5, 31.5, 31.5, 0.84) 50%,
+      rgba(31.5, 31.5, 31.5, 0.84) 100%
     );
   }
 `;
@@ -70,8 +66,7 @@ export const ImgWrapper = styled.div`
     display: block;
     position: absolute;
     top: 20%;
-    left: 40px;
-
+    left: 60px;
     min-width: 300px;
     width: 300px;
     height: 450px;
@@ -96,15 +91,15 @@ export const WrapperInfo = styled.div`
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(2px);
   border-radius: 20px 20px 0 0;
-  z-index: 99;
+  /* z-index: 99; */
   @media screen and (min-width: 768px) {
     background: rgba(255, 255, 255, 0);
     position: relative;
     border-radius: 20px;
     width: 400px;
     min-height: 350px;
-    left: 350px;
-    top: 30%;
+    left: 380px;
+    top: 224px;
   }
   @media screen and (min-width: 900px) {
     width: 550px;
@@ -154,42 +149,35 @@ export const LinkBack = styled(Link)`
 `;
 
 export const Bookmark = styled(MdOutlineBookmarkBorder)`
-  position: absolute;
-  right: 15px;
   color: #ffffff;
   width: 30px;
   height: 30px;
-  cursor: pointer;
-  @media screen and (min-width: 768px) {
-    width: 30px;
-    height: 30px;
-  }
 `;
 
 export const BookmarkOk = styled(MdOutlineBookmark)`
-  position: absolute;
-  right: 15px;
   color: #ffffff;
   width: 30px;
   height: 30px;
-  cursor: pointer;
-  @media screen and (min-width: 768px) {
-    width: 30px;
-    height: 30px;
-  }
 `;
 
 export const WrapperBookmark = styled.div`
+  /* bottom: 110px; */
+  /* left: 480px; */
+
+  cursor: pointer;
   @media screen and (min-width: 768px) {
-    position: absolute;
-    width: 22px;
-    height: 22px;
-    top: 330px;
-    left: -280px;
+    /* left: 180px;
+
+    top: 85px; */
+
+    /* bottom: auto; */
+    /* left: auto; */
   }
 `;
 
-export const WrapperOutlet = styled.div``;
+export const WrapperOutlet = styled.div`
+  margin-top: 330px;
+`;
 
 export const SectionLink = styled.div`
   /* position: relative; */
@@ -229,8 +217,8 @@ export const ContainerVote = styled.div`
   /* margin-top: 10px; */
   /* margin-left: 15px; */
   position: fixed;
-  bottom: 0;
-  left: 0;
+  top: -40px;
+  right: -500px;
   width: 100%;
   height: auto;
   /* left: 0; */

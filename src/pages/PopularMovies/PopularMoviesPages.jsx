@@ -15,7 +15,7 @@ export const PopularMoviesPages = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
-  const pageMovies = searchParams.get('page') ?? '';
+  const pageMovies = searchParams.get('page');
 
   const onChange = page => {
     setSearchParams({ page });

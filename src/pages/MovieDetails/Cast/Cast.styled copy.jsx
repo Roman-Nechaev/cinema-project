@@ -4,17 +4,24 @@ import { Link } from 'react-router-dom';
 
 import { MdOutlineClose } from 'react-icons/md';
 
-export const CastScrolled = styled.div`
-  width: 55%;
-  margin: 0 auto;
+const setFlag = props => {
+  return !props.flag ? 'ani 1s forwards' : 'hide 1s forwards';
+};
 
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 18px;
+export const CastScrolled = styled.div`
+  /* position: fixed; */
+
+  /* bottom: 30px; */
+  /* left: 0; */
+  width: 200px;
+  padding-left: 40px;
+  padding-right: 40px;
+
   backdrop-filter: blur(25px);
 
   background: rgba(255, 255, 255, 0.25);
   z-index: 999999;
+  width: 100%;
 `;
 
 export const Ul = styled.ul`
@@ -43,7 +50,7 @@ export const Ul = styled.ul`
 `;
 
 export const LiCard = styled.li`
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-bottom: 15px;
   margin-left: 10px;
   margin-right: 4px;
@@ -51,9 +58,7 @@ export const LiCard = styled.li`
   /* padding-bottom: 10px; */
   border-radius: 8px;
   overflow: hidden;
-  /* min-width: 20%; */
-  min-width: 140px;
-  width: 140px;
+  min-width: 20%;
 
   @media screen and (min-width: 900px) {
     min-width: 140px;
@@ -63,13 +68,14 @@ export const LiCard = styled.li`
 
 export const Img = styled.img`
   min-width: 100%;
+  /* height: 200px; */
 `;
 
 export const Name = styled.p`
   font-weight: bold;
   padding-top: 5px;
   padding-bottom: 0;
-  color: #ffffff;
+  color: #4e4e4e;
   text-align: center;
 `;
 
@@ -77,7 +83,7 @@ export const Character = styled.p`
   padding-top: 5px;
   text-align: center;
   font-size: 0.9em;
-  color: #000000;
+  color: #4e4e4e;
   /* padding-left: 8px; */
 `;
 

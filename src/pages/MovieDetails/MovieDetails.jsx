@@ -151,7 +151,9 @@ export const MovieDetails = () => {
                 />
                 <SectionLink onClick={toggle}>
                   <LinkNav to="cast">{t('Cast')}</LinkNav>
+
                   <LinkNav to="trailer">{t('Trailer')}</LinkNav>
+
                   {/* <LinkNav to="reviews">
                     Reviews
                   </LinkNav> */}
