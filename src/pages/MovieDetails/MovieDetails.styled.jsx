@@ -10,16 +10,19 @@ export const WrapperCards = styled.div`
   display: flex;
   min-height: 500px;
   min-height: 100vh;
+
   @media screen and (min-width: 768px) {
     /* min-height: 800px; */
+
     min-height: 100vh;
+    box-sizing: border-box;
   }
 `;
 
 export const WrapperBgImg = styled.div`
   display: flex;
   min-width: 100%;
-
+  position: relative;
   min-height: 100vh;
 
   z-index: 99;
@@ -34,6 +37,7 @@ export const WrapperBgImg = styled.div`
   background-image: ${props => `url(${props.img})`};
 
   @media screen and (min-width: 768px) {
+    min-height: 100vh;
     z-index: 1;
     background-position: left calc((50vw - 170px) - 440px) top;
   }

@@ -57,7 +57,7 @@ export const TrailerMovieModal = ({ onClose, onMoviesId }) => {
 
   return createPortal(
     <>
-      <BackDrop onClick={handleBackdropClick}>
+      <BackDrop onClick={handleBackdropClick} className="modal-show">
         <CloseIcon />
         {key ? (
           <YouTube videoId={key.key} opts={wide(isWide)} />

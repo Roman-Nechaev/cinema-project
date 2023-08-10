@@ -49,6 +49,11 @@ export const CommonMovieItem = moviesItem => {
     dispatch(setFilmsID(item));
   };
 
+  if (isOpen) {
+    document.body.classList.add('modal-open');
+  } else if (!isOpen) {
+    document.body.classList.remove('modal-open');
+  }
   return (
     <>
       <ListItem>

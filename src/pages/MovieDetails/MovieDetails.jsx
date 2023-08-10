@@ -65,8 +65,6 @@ export const MovieDetails = () => {
     vote_average,
   } = moviesDetails;
 
-  console.log('backdrop_path', backdrop_path);
-  console.log('poster_path', poster_path);
   const voteAverage = Math.ceil(vote_average * 10);
 
   useEffect(() => {
@@ -99,7 +97,7 @@ export const MovieDetails = () => {
   };
 
   return (
-    <WrapperCards>
+    <WrapperCards id="test">
       <WrapperBgImg img={checkBackdropImage(poster_path, backdrop_path)}>
         <BgGradient>
           <LinkBack to={beckLinkLocationRef.current}>Go BACK</LinkBack>

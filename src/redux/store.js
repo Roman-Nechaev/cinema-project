@@ -16,6 +16,7 @@ import { moviesSearchReducer } from './movieSearch/movieDetailsSlice';
 import { filmsIdReducer } from './savedFilmsId/savedFilmsIdSlice';
 import { castReducer } from './requestCast/castSlice';
 import { moviesTrailerSliceReducer } from './movieVideos/moviesTrailerSlice';
+import { moviesDiscoverReducer } from './DiscoverMovie/DiscoverSlice';
 
 const persistConfig = {
   key: 'root',
@@ -30,6 +31,7 @@ export const store = configureStore({
     moviesCast: castReducer,
     moviesSearch: moviesSearchReducer,
     moviesTrailer: moviesTrailerSliceReducer,
+    discoverMovies: moviesDiscoverReducer,
     savedFilmsId: persistReducer(persistConfig, filmsIdReducer),
   },
   middleware(getDefaultMiddleware) {

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding-top: 90px;
+  padding: 100px 40px 0 40px;
 `;
 
 export const TitlePage = styled.h1`

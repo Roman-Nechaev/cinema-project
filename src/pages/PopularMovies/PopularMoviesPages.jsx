@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import Pagination from 'rc-pagination';
 import { useTranslation } from 'react-i18next';
@@ -10,12 +10,15 @@ import { fetchPopMovie } from '../../redux/PopularMovie/operations';
 
 import { Container, TitlePage } from './PopularMoviesPages.styled';
 import scrollToTop from '../../utils/scrollToTop';
+import { selectMoviesIsLoading } from '../../redux/PopularMovie/selector';
+import { LoaderSpinner } from '../../components/LoaderSpinner/LoaderSpinner';
 
 export const PopularMoviesPages = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
   const pageMovies = searchParams.get('page');
+  const isLoading = useSelector(selectMoviesIsLoading);
 
   const onChange = page => {
     setSearchParams({ page });
@@ -34,10 +37,20 @@ export const PopularMoviesPages = () => {
   return (
     <Container>
       <TitlePage>{t('PopularMovies')}</TitlePage>
-      <MoviesPopularList />
-      <WrapperPagination>
-        <Pagination onChange={onChange} current={+pageMovies} total={2500} />
-      </WrapperPagination>
+      {isLoading ? (
+        <LoaderSpinner />
+      ) : (
+        <>
+          <MoviesPopularList />
+          <WrapperPagination>
+            <Pagination
+              onChange={onChange}
+              current={+pageMovies}
+              total={2500}
+            />
+          </WrapperPagination>
+        </>
+      )}
     </Container>
   );
 };

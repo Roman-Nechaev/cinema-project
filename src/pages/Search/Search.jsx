@@ -8,7 +8,10 @@ import { MoviesSearchList } from '../../components/MoviesSearchList/MoviesSearch
 import { fetchSearchMovie } from '../../redux/movieSearch/operations';
 
 import { WrapperPagination } from '../../components/MoviesSearchList/MoviesSearchList.styled';
-import { selectMoviesTotal } from '../../redux/movieSearch/selector';
+import {
+  selectMoviesTotal,
+  selectSearchIsLoading,
+} from '../../redux/movieSearch/selector';
 
 import {
   Button,
@@ -20,10 +23,12 @@ import {
 } from './Search.styled';
 import scrollToTop from '../../utils/scrollToTop';
 import { useTranslation } from 'react-i18next';
+import { LoaderSpinner } from '../../components/LoaderSpinner/LoaderSpinner';
 
 export const Search = () => {
   const dispatch = useDispatch();
   const totalFilms = useSelector(selectMoviesTotal);
+  const isLoading = useSelector(selectSearchIsLoading);
   const { t } = useTranslation();
 
   const handleSubmit = ({ values }, actions) => {
@@ -56,7 +61,7 @@ export const Search = () => {
 
     dispatch(fetchSearchMovie({ search: queryMovies, page: pageMovies, lang }));
   }, [dispatch, pageMovies, queryMovies, setSearchParams, t]);
-  console.log('totalFilms', totalFilms);
+
   return (
     <Wrapper>
       <ContainerForm>
@@ -76,16 +81,21 @@ export const Search = () => {
         </Formik>
       </ContainerForm>
 
-      <MoviesSearchList />
-
-      {totalFilms && (
-        <WrapperPagination>
-          <Pagination
-            onChange={onChange}
-            current={+pageMovies}
-            total={Math.round(totalFilms / 2)}
-          />
-        </WrapperPagination>
+      {isLoading ? (
+        <LoaderSpinner />
+      ) : (
+        <>
+          <MoviesSearchList />
+          {!!totalFilms && (
+            <WrapperPagination>
+              <Pagination
+                onChange={onChange}
+                current={+pageMovies}
+                total={Math.round(totalFilms / 2)}
+              />
+            </WrapperPagination>
+          )}
+        </>
       )}
     </Wrapper>
   );

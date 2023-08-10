@@ -8,6 +8,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Source Sans Pro', Arial, sans-serif;
   color: aliceblue;
+  &.modal-open {
+    overflow: hidden;
+  }
 }
 
 * {

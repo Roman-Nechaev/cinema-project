@@ -5,6 +5,7 @@ export const WrapperPagination = styled.div`
   display: table;
   margin: 0 auto;
   margin-top: 20px;
+  padding-bottom: 20px;
 `;
 
 export const Wrapper = styled.div`

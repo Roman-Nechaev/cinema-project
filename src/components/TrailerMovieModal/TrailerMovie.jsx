@@ -52,7 +52,7 @@ export const TrailerMovie = () => {
   };
 
   return createPortal(
-    <div>
+    <div className="modal-show">
       <Link to={backLinkLocationRef.current}>
         <BackDrop>
           <CloseIcon />

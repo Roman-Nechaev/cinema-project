@@ -1,13 +1,10 @@
-// import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
 import { HiSearch } from 'react-icons/hi';
 import { MdSortByAlpha } from 'react-icons/md';
 
-// import { HiOutlineBookmark, HiOutlineBookmarkAlt } from 'react-icons/hi';
-
 export const Wrapper = styled.div`
-  padding-top: 80px;
+  padding: 83px 40px 0 40px;
 `;
 
 export const FormsSt = styled(Form)`
@@ -34,8 +31,8 @@ export const Input = styled(Field)`
   outline: none;
   border-bottom: 2px solid #56e6d5;
   background: transparent;
-  padding-left: 60px;
   padding-right: 10px;
+  padding-left: 60px;
 
   color: #b9f8f2;
   ::placeholder {

@@ -19,7 +19,8 @@ export const WrapperList = styled.ul`
     flex-direction: row;
     align-items: stretch;
     max-width: 1200px;
-
+    justify-content: flex-start;
     flex-wrap: wrap;
+    padding-left: 60px;
   }
 `;
