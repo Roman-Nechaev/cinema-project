@@ -6,9 +6,15 @@ import {
 import { useEffect } from 'react';
 import { fetchDiscoverMovie } from '../../redux/DiscoverMovie/operations';
 import { CommonHomeItem } from '../CommonHomeList/CommonHomeItem';
+import './animationArroe.scss';
 
 import { LoaderSpinner } from '../LoaderSpinner/LoaderSpinner';
-import { Wrapper, WrapperList, LinkMore } from './HomeList.styled';
+import {
+  Wrapper,
+  WrapperList,
+  LinkMore,
+  WrapperArrow,
+} from './HomeList.styled';
 
 export const HomeList = () => {
   const dispatch = useDispatch();
@@ -25,12 +31,19 @@ export const HomeList = () => {
       {IsLoading ? (
         <LoaderSpinner />
       ) : (
-        <WrapperList>
-          {discoverMovie.map(item => (
-            <CommonHomeItem key={item.id} {...item} />
-          ))}
-          <LinkMore to={'/popular'}>See more...</LinkMore>
-        </WrapperList>
+        <>
+          <WrapperList>
+            {discoverMovie.map(item => (
+              <CommonHomeItem key={item.id} {...item} />
+            ))}
+            <LinkMore to={'/popular'}>See more...</LinkMore>
+          </WrapperList>
+          <WrapperArrow>
+            <div className="scroll-down">
+              <span href="#complements" className="animate"></span>
+            </div>
+          </WrapperArrow>
+        </>
       )}
     </Wrapper>
   );

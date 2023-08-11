@@ -1,14 +1,6 @@
 import styled from 'styled-components';
 
-import {
-  MdOutlineClose,
-  MdOutlineCancel,
-  MdOutlineAssistantDirection,
-  MdArrowBackIosNew,
-  MdOutlineGTranslate,
-  MdGTranslate,
-  MdClose,
-} from 'react-icons/md';
+import { MdOutlineCancel } from 'react-icons/md';
 
 export const BackDrop = styled.div`
   position: fixed;
@@ -31,7 +23,7 @@ export const CloseIcon = styled(MdOutlineCancel)`
   height: 45px;
   border-radius: 50%;
 
-  top: -215px;
+  top: -235px;
   left: 40px;
   cursor: pointer;
   color: #ffffff;

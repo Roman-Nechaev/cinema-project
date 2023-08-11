@@ -118,6 +118,7 @@ export const ListItem = styled.li`
   transition: 0.5s;
   :hover,
   :focus {
+    transform: scale(1.03);
     background-color: #00619a;
     box-shadow: 0px 6px 22px 3px rgba(0, 208, 255, 0.73);
     + ${PlayIcon} {

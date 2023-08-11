@@ -8,6 +8,7 @@ import { selectMoviesDetails } from '../../redux/movieDetails/selector';
 
 import { fetchDetailsMovie } from '../../redux/movieDetails/operations';
 import checkPoster from '../../utils/checkPoster';
+import { RiArrowGoBackFill } from 'react-icons/ri';
 
 import convertGenres from '../../utils/convertGenres';
 
@@ -29,6 +30,8 @@ import {
   WrapperOutlet,
   LinkNav,
   ContainerVote,
+  PlayIcon,
+  CastIcon,
 } from './MovieDetails.styled';
 
 import {
@@ -97,10 +100,12 @@ export const MovieDetails = () => {
   };
 
   return (
-    <WrapperCards id="test">
+    <WrapperCards>
       <WrapperBgImg img={checkBackdropImage(poster_path, backdrop_path)}>
         <BgGradient>
-          <LinkBack to={beckLinkLocationRef.current}>Go BACK</LinkBack>
+          <LinkBack to={beckLinkLocationRef.current}>
+            <RiArrowGoBackFill />
+          </LinkBack>
           <>
             <ImgWrapper>
               <Img src={checkPoster(poster_path)} loading="lazy" alt={title} />
@@ -148,9 +153,9 @@ export const MovieDetails = () => {
                   }}
                 />
                 <SectionLink onClick={toggle}>
-                  <LinkNav to="cast">{t('Cast')}</LinkNav>
+                  <LinkNav to="trailer">{<PlayIcon></PlayIcon>}</LinkNav>
 
-                  <LinkNav to="trailer">{t('Trailer')}</LinkNav>
+                  <LinkNav to="cast">{<CastIcon></CastIcon>}</LinkNav>
 
                   {/* <LinkNav to="reviews">
                     Reviews

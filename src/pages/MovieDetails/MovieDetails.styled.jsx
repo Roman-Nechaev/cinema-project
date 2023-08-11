@@ -1,7 +1,12 @@
 import { Link, NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { MdOutlineBookmarkBorder, MdOutlineBookmark } from 'react-icons/md';
+import {
+  MdOutlineBookmarkBorder,
+  MdOutlineBookmark,
+  MdSlowMotionVideo,
+} from 'react-icons/md';
+import { IoIosPeople } from 'react-icons/io';
 
 export const WrapperCards = styled.div`
   overflow: hidden;
@@ -12,8 +17,6 @@ export const WrapperCards = styled.div`
   min-height: 100vh;
 
   @media screen and (min-width: 768px) {
-    /* min-height: 800px; */
-
     min-height: 100vh;
     box-sizing: border-box;
   }
@@ -48,12 +51,7 @@ export const BgGradient = styled.div`
   @media screen and (min-width: 768px) {
     min-width: 100%;
     min-height: 100%;
-    /* background-image: linear-gradient(
-      to right,
-      rgba(52.5, 52.5, 73.5, 1) calc((50vw - 170px) - 340px),
-      rgba(52.5, 52.5, 73.5, 0.84) 50%,
-      rgba(52.5, 52.5, 73.5, 0.84) 100%
-    ); */
+
     background-image: linear-gradient(
       to right,
       rgba(31.5, 31.5, 31.5, 1) calc((50vw - 170px) - 340px),
@@ -78,7 +76,6 @@ export const ImgWrapper = styled.div`
 `;
 
 export const Img = styled.img`
-  /* border: 2px solid rgb(0, 13, 255); */
   min-width: 100%;
   width: 100%;
   height: 100%;
@@ -92,6 +89,7 @@ export const WrapperInfo = styled.div`
   width: 100%;
   bottom: 0;
   padding: 10px;
+  padding-top: 30px;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(2px);
   border-radius: 20px 20px 0 0;
@@ -120,10 +118,7 @@ export const Title = styled.h2`
 `;
 
 export const Genres = styled.p`
-  /* margin-top: 10px; */
-  /* margin-left: 50px; */
   text-align: center;
-
   color: #d1d1d1;
   text-shadow: 1px 0 1px #00000085, 0 1px 1px #00000085, -1px 0 1px #00000085,
     0 -1px 1px #00000085;
@@ -144,38 +139,67 @@ export const Overview = styled.p`
 
 export const LinkBack = styled(Link)`
   position: absolute;
-  color: #ffffff;
+  padding: 15px;
   top: 90px;
-  left: 10px;
-  text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
-
+  left: 40px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(2px);
+  border-radius: 50%;
+  transition: all 0.3s;
   cursor: pointer;
+  svg {
+    width: 35px;
+    height: 35px;
+    color: #ffffff;
+    transition: all 0.3s;
+  }
+  :hover {
+    transform: scale(1.2);
+
+    svg {
+      color: #00ffc3;
+    }
+  }
+`;
+
+export const WrapperBookmark = styled.div`
+  /* bottom: 110px; */
+  /* left: 580px; */
+
+  position: absolute;
+
+  right: 0;
+  margin-right: 20px;
+  z-index: 99999;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    /* left: -50px; */
+    /* padding: 20px; */
+    top: 0;
+    margin-right: 50px;
+  }
 `;
 
 export const Bookmark = styled(MdOutlineBookmarkBorder)`
   color: #ffffff;
   width: 30px;
   height: 30px;
+  transition: all 0.3s;
+
+  :hover {
+    transform: scale(1.3);
+  }
 `;
 
 export const BookmarkOk = styled(MdOutlineBookmark)`
   color: #ffffff;
   width: 30px;
   height: 30px;
-`;
+  transition: all 0.3s;
 
-export const WrapperBookmark = styled.div`
-  /* bottom: 110px; */
-  /* left: 480px; */
-
-  cursor: pointer;
-  @media screen and (min-width: 768px) {
-    /* left: 180px;
-
-    top: 85px; */
-
-    /* bottom: auto; */
-    /* left: auto; */
+  :hover {
+    transform: scale(1.3);
   }
 `;
 
@@ -184,54 +208,72 @@ export const WrapperOutlet = styled.div`
 `;
 
 export const SectionLink = styled.div`
-  /* position: relative; */
+  display: flex;
+
+  align-items: center;
 `;
 
 export const LinkNav = styled(NavLink)`
-  border: 2px solid rgb(212, 212, 212);
+  display: flex;
 
-  margin-left: 10px;
-  padding: 10px;
+  margin-left: 6px;
+  border-radius: 50%;
 
-  color: #ffffff;
-
-  right: 45px;
-  width: 5%;
-  text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
-  border-radius: 100%;
   background-color: #09344b;
+
   transition: all 0.3s;
   cursor: pointer;
 
-  @media screen and (min-width: 768px) {
-    /* top: 340px; */
-    /* left: -80px; */
-  }
   :hover {
-    color: #ff0000;
+    svg {
+      color: #3cd95b;
+    }
+
+    transform: scale(1.1);
   }
   &.active {
-    color: #ff0000;
+    svg {
+      color: #3cd95b;
+    }
   }
 `;
 
 export const ContainerVote = styled.div`
   display: flex;
   align-items: center;
-  /* margin-top: 10px; */
-  /* margin-left: 15px; */
-  position: fixed;
+  margin-top: 10px;
+  margin-left: 15px;
+  position: absolute;
   top: -40px;
-  right: -500px;
-  width: 100%;
-  height: auto;
-  /* left: 0; */
+
+  right: 0;
+  padding-right: 30px;
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    position: static;
-    align-items: center;
-    margin-top: 10px;
-    margin-left: 15px;
+    position: relative;
+    top: 90%;
+    /* left: 0; */
+    /* bottom: -230px; */
   }
+`;
+
+export const PlayIcon = styled(MdSlowMotionVideo)`
+  border: 2px solid rgb(212, 212, 212);
+  color: #cfd0d0;
+  transition: 0.5s;
+  border-radius: 50%;
+
+  width: 50px;
+  height: 50px;
+`;
+
+export const CastIcon = styled(IoIosPeople)`
+  color: #cfd0d0;
+  border: 2px solid rgb(212, 212, 212);
+
+  transition: 0.5s;
+  border-radius: 50%;
+
+  width: 45px;
+  height: 45px;
 `;

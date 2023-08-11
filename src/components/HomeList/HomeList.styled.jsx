@@ -5,27 +5,23 @@ export const Wrapper = styled.div`
   margin-top: 30px;
 `;
 
+export const WrapperArrow = styled.div`
+  position: relative;
+`;
+
 export const WrapperList = styled.ul`
-  /* display: flex; */
+  display: flex;
 
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* margin: 0 auto; */
+  margin: 16px 0;
+  overflow-x: scroll;
+  height: 320px;
 
-  @media screen and (min-width: 768px) {
-    display: flex;
-    margin: 16px 0;
-    overflow-x: scroll;
-    height: 320px;
-
-    margin-left: 50px;
-  }
+  margin-left: 50px;
 `;
 
 export const LinkMore = styled(Link)`
   color: #ffffff;
-  /* margin-left: 10px; */
+
   transition: all 0.5s;
   justify-content: center;
   writing-mode: vertical-rl;
