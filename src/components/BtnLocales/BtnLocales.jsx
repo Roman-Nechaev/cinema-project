@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Button, Container } from './BtnLocales.styled';
+import { useEffect } from 'react';
 
 export const BtnLocales = () => {
   const { i18n } = useTranslation();
@@ -21,14 +22,18 @@ export const BtnLocales = () => {
   const changeLanguage = language => {
     i18n.changeLanguage(language);
   };
-  const btn = document.querySelectorAll('#btn');
+  useEffect(() => {
+    const btn = document.querySelectorAll('#btn');
 
-  for (const iterator of btn) {
-    const foo = iterator.textContent.toLowerCase();
-    if (foo === i18n.resolvedLanguage) {
-      iterator.classList.add('activeBtn');
+    for (const iterator of btn) {
+      const foo = iterator.textContent.toLowerCase();
+
+      if (foo === i18n.resolvedLanguage) {
+        iterator.classList.toggle('activeBtn');
+      }
     }
-  }
+  }, []);
+
   return (
     <Container onClick={handleClickBtn}>
       <Button id="btn" onClick={() => changeLanguage('en')}>

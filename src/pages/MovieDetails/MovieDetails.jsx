@@ -48,6 +48,7 @@ import checkBackdropImage from '../../utils/checkBackdropImage';
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
+
   const moviesDetails = useSelector(selectMoviesDetails);
 
   const savedFilmsId = useSelector(selectFilmsIdValue);
@@ -156,11 +157,10 @@ export const MovieDetails = () => {
                   <LinkNav title="Play Trailer" to="trailer">
                     {<PlayIcon></PlayIcon>}
                   </LinkNav>
-
-                  <LinkNav title="Cast" to="cast">
+                  {/* to="cast" */}
+                  <LinkNav title="Cast" to={!isOpen ? 'cast' : `/movies/${id}`}>
                     {<CastIcon></CastIcon>}
                   </LinkNav>
-
                   {/* <LinkNav to="reviews">
                     Reviews
                   </LinkNav> */}
