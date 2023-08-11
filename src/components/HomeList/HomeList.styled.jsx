@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
 `;
 
 export const WrapperArrow = styled.div`
+  top: -35px;
   position: relative;
 `;
 

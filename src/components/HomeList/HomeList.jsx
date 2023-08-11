@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectDiscoverMovie,
   selectDiscoverMovieIsLoading,
-} from '../../redux/DiscoverMovie/selector';
+} from '../../redux/discoverMovie/selector';
 import { useEffect } from 'react';
-import { fetchDiscoverMovie } from '../../redux/DiscoverMovie/operations';
+import { useTranslation } from 'react-i18next';
+import { fetchDiscoverMovie } from '../../redux/discoverMovie/operations';
 import { CommonHomeItem } from '../CommonHomeList/CommonHomeItem';
-import './animationArroe.scss';
 
 import { LoaderSpinner } from '../LoaderSpinner/LoaderSpinner';
 import {
@@ -15,19 +15,22 @@ import {
   LinkMore,
   WrapperArrow,
 } from './HomeList.styled';
+import './animationArroe.scss';
 
 export const HomeList = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchDiscoverMovie());
-  }, [dispatch]);
+    const lang = t('language');
+    dispatch(fetchDiscoverMovie(lang));
+  }, [dispatch, t]);
 
   const discoverMovie = useSelector(selectDiscoverMovie);
   const IsLoading = useSelector(selectDiscoverMovieIsLoading);
   return (
     <Wrapper>
-      <h2>Popular on Found Films </h2>
+      <h2> {t('HomeListTitle')} Found Films </h2>
       {IsLoading ? (
         <LoaderSpinner />
       ) : (

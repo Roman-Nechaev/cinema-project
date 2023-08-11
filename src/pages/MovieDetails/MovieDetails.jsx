@@ -153,9 +153,13 @@ export const MovieDetails = () => {
                   }}
                 />
                 <SectionLink onClick={toggle}>
-                  <LinkNav to="trailer">{<PlayIcon></PlayIcon>}</LinkNav>
+                  <LinkNav title="Play Trailer" to="trailer">
+                    {<PlayIcon></PlayIcon>}
+                  </LinkNav>
 
-                  <LinkNav to="cast">{<CastIcon></CastIcon>}</LinkNav>
+                  <LinkNav title="Cast" to="cast">
+                    {<CastIcon></CastIcon>}
+                  </LinkNav>
 
                   {/* <LinkNav to="reviews">
                     Reviews

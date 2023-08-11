@@ -4,7 +4,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
 import trsEn from './locales/en/translation.json';
-import trsRu from './locales/ru/translation.json';
+
 import trsUk from './locales/uk/translation.json';
 
 const localStorageLang = localStorage.getItem('i18nextLng');
@@ -20,9 +20,6 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      ru: {
-        translation: trsRu,
-      },
       en: {
         translation: trsEn,
       },

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   position: fixed;
-  z-index: 999;
+  z-index: 9;
   border-radius: 5px;
 
   bottom: 10px;
@@ -28,5 +28,8 @@ export const Button = styled.button`
   :hover,
   :focus {
     background-color: #00b3ff5a;
+  }
+  &.activeBtn {
+    background-color: #56e6d588;
   }
 `;

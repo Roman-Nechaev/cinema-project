@@ -1,13 +1,13 @@
+import { useTranslation } from 'react-i18next';
 import { HomeList } from '../../components/HomeList/HomeList';
 import { Container, Tittle, Description } from './Home.styled';
 export const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
-      <Tittle>Only on Found Films</Tittle>
-      <Description>
-        Found Films gives you amazing shows you won`t find anywhere else.
-        Movies, series, specials and more - all tailored to your interests.
-      </Description>
+      <Tittle>{t('HomeTitle')} Found Films</Tittle>
+      <Description>Found Films {t('HomeDescription')}</Description>
 
       <HomeList />
     </Container>

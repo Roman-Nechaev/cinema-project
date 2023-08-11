@@ -10,21 +10,33 @@ export const BtnLocales = () => {
     }
 
     const currentBtn = document.querySelector('.activeBtn');
+
     if (currentBtn) {
       currentBtn.classList.remove('activeBtn');
     }
+
     evt.target.classList.toggle('activeBtn');
   };
 
   const changeLanguage = language => {
     i18n.changeLanguage(language);
   };
+  const btn = document.querySelectorAll('#btn');
 
+  for (const iterator of btn) {
+    const foo = iterator.textContent.toLowerCase();
+    if (foo === i18n.resolvedLanguage) {
+      iterator.classList.add('activeBtn');
+    }
+  }
   return (
     <Container onClick={handleClickBtn}>
-      <Button onClick={() => changeLanguage('en')}>EN</Button>
-      <Button onClick={() => changeLanguage('uk')}>UK</Button>
-      <Button onClick={() => changeLanguage('ru')}>RU</Button>
+      <Button id="btn" onClick={() => changeLanguage('en')}>
+        EN
+      </Button>
+      <Button id="btn" onClick={() => changeLanguage('uk')}>
+        UK
+      </Button>
     </Container>
   );
 };

@@ -8,9 +8,7 @@ axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 
 export const fetchDiscoverMovie = createAsyncThunk(
   'movie/fetchDiscover',
-  async (data, thunkAPI) => {
-    // const { pageMovies, lang } = data;
-
+  async (lang, thunkAPI) => {
     try {
       const response = await axios.get(
         '/discover/movie?&with_watch_monetization_types=free',
@@ -18,6 +16,7 @@ export const fetchDiscoverMovie = createAsyncThunk(
           params: {
             api_key: API_KEY,
             sort_by: 'popularity.desc',
+            language: lang,
           },
         }
       );
