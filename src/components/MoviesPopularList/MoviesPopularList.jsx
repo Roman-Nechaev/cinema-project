@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { selectMovies } from '../../redux/popularMovie/selector';
+import { selectMovies } from '../../redux/PopularMovie/selector';
 
 import { CommonMovieItem } from '../CommonMovieList/CommonMovieItem';
 

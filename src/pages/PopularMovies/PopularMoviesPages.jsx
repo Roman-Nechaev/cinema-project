@@ -6,12 +6,12 @@ import { useTranslation } from 'react-i18next';
 
 import { MoviesPopularList } from '../../components/MoviesPopularList/MoviesPopularList';
 import { WrapperPagination } from '../../components/MoviesPopularList/MoviesPopularList.styled';
-import { fetchPopMovie } from '../../redux/popularMovie/operations';
 
 import { Container, TitlePage } from './PopularMoviesPages.styled';
 import scrollToTop from '../../utils/scrollToTop';
-import { selectMoviesIsLoading } from '../../redux/popularMovie/selector';
+import { selectMoviesIsLoading } from '../../redux/PopularMovie/selector';
 import { LoaderSpinner } from '../../components/LoaderSpinner/LoaderSpinner';
+import { fetchPopMovie } from '../../redux/PopularMovie/operations';
 
 export const PopularMoviesPages = () => {
   const dispatch = useDispatch();
