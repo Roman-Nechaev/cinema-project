@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   margin-top: 30px;
+  overflow: hidden;
 `;
 
 export const WrapperArrow = styled.div`
-  top: -35px;
+  top: -205px;
+  left: 40%;
   position: relative;
 `;
 
