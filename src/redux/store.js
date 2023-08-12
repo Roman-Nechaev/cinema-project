@@ -16,7 +16,7 @@ import { moviesSearchReducer } from './movieSearch/movieDetailsSlice';
 import { filmsIdReducer } from './savedFilmsId/savedFilmsIdSlice';
 import { castReducer } from './requestCast/castSlice';
 import { moviesTrailerSliceReducer } from './movieVideos/moviesTrailerSlice';
-import { moviesDiscoverReducer } from './discoverMovie/discoverSlice';
+import { moviesDiscoverReducer } from './DiscoverMovie/discoverSlice';
 
 const persistConfig = {
   key: 'root',
