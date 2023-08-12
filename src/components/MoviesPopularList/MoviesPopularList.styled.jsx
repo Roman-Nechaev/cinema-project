@@ -6,7 +6,9 @@ export const WrapperPagination = styled.div`
   padding-top: 20px;
   padding-bottom: 20px;
 `;
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  margin-top: 25px;
+`;
 
 export const WrapperList = styled.ul`
   display: flex;

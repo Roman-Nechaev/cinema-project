@@ -22,7 +22,7 @@ export const Header = styled.header`
   padding: 20px 30px;
   justify-content: space-between;
   /* bottom: 0; */
-  width: 100%;
+  min-width: 100vw;
   z-index: 99;
   background: rgba(255, 255, 255, 0.085);
   backdrop-filter: blur(3px);

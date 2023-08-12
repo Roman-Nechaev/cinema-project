@@ -10,7 +10,7 @@ export const WrapperPagination = styled.div`
 
 export const Wrapper = styled.div`
   margin: 0 auto;
-  margin-top: 10px;
+  margin-top: 30px;
 
   @media screen and (min-width: 768px) {
     padding-left: 60px;

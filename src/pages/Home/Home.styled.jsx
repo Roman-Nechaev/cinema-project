@@ -5,8 +5,9 @@ export const Container = styled.div`
 `;
 
 export const Tittle = styled.h1`
+  max-width: 900px;
   margin-bottom: 20px;
-  margin-left: 200px;
+  margin-left: 100px;
   letter-spacing: 0.1em;
   text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a,
     0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222,
@@ -16,6 +17,6 @@ export const Tittle = styled.h1`
 `;
 
 export const Description = styled.p`
-  width: 500px;
+  max-width: 500px;
   font-size: 19px;
 `;
