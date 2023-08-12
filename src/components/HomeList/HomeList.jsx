@@ -2,10 +2,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectDiscoverMovie,
   selectDiscoverMovieIsLoading,
-} from '../../redux/discoverMovie/selector';
+} from '../../redux/DiscoverMovie/selector';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { fetchDiscoverMovie } from '../../redux/discoverMovie/operations';
+import { fetchDiscoverMovie } from '../../redux/DiscoverMovie/operations';
 import { CommonHomeItem } from '../CommonHomeList/CommonHomeItem';
 
 import { LoaderSpinner } from '../LoaderSpinner/LoaderSpinner';
@@ -15,7 +15,7 @@ import {
   LinkMore,
   WrapperArrow,
 } from './HomeList.styled';
-import './animationArroe.scss';
+import './animationArrow.scss';
 
 export const HomeList = () => {
   const { t } = useTranslation();
