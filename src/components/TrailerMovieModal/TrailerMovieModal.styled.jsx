@@ -11,6 +11,7 @@ export const BackDrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 1200;
   cursor: pointer;
@@ -35,4 +36,11 @@ export const CloseIcon = styled(MdOutlineCancel)`
     background-color: #0088ff;
     color: #00ff95;
   }
+`;
+
+export const NoTrailer = styled.h2`
+  color: aliceblue;
+  font-size: 34px;
+  border: 2px solid #00ff95;
+  padding: 30px;
 `;

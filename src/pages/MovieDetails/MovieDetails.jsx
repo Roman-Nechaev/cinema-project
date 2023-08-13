@@ -157,7 +157,7 @@ export const MovieDetails = () => {
                   <LinkNav title="Play Trailer" to="trailer">
                     {<PlayIcon></PlayIcon>}
                   </LinkNav>
-                  {/* to="cast" */}
+
                   <LinkNav title="Cast" to={!isOpen ? 'cast' : `/movies/${id}`}>
                     {<CastIcon></CastIcon>}
                   </LinkNav>

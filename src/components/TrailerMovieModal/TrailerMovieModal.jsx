@@ -4,7 +4,7 @@ import YouTube from 'react-youtube';
 
 import { useMedia } from 'react-use';
 
-import { BackDrop, CloseIcon } from './TrailerMovieModal.styled';
+import { BackDrop, CloseIcon, NoTrailer } from './TrailerMovieModal.styled';
 import { useLocation } from 'react-router-dom';
 import { fetchMovieVideos } from '../../redux/movieVideos/operations';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,6 +23,7 @@ export const TrailerMovieModal = ({ onClose, onMoviesId }) => {
 
   useEffect(() => {
     const lang = t('language');
+
     dispatch(fetchMovieVideos({ movie_Id: onMoviesId, lang }));
   }, [dispatch, onMoviesId, t]);
 
@@ -62,7 +63,7 @@ export const TrailerMovieModal = ({ onClose, onMoviesId }) => {
         {key ? (
           <YouTube videoId={key.key} opts={wide(isWide)} />
         ) : (
-          <h1>No Trailer</h1>
+          <NoTrailer>There`s no trailer</NoTrailer>
         )}
       </BackDrop>
     </>,
