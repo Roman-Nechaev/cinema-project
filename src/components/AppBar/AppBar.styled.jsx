@@ -1,8 +1,7 @@
-// import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { HiOutlineMenu, HiSearch, HiUser } from 'react-icons/hi';
-import { NavLink } from 'react-router-dom';
 
 export const ImgBg = styled.img`
   position: absolute;
@@ -15,13 +14,11 @@ export const ImgBg = styled.img`
 `;
 
 export const Header = styled.header`
-  /* border: 1px solid #40ff00; */
-
   position: fixed;
 
   padding: 20px 30px;
   justify-content: space-between;
-  /* bottom: 0; */
+
   min-width: 100vw;
   z-index: 99;
   background: rgba(255, 255, 255, 0.085);
@@ -30,7 +27,6 @@ export const Header = styled.header`
   align-items: center;
   @media screen and (min-width: 768px) {
     display: flex;
-    /* bottom: auto; */
   }
 `;
 
@@ -53,25 +49,12 @@ export const UserIcon = styled(HiUser)`
 `;
 
 export const LogoImg = styled.img`
-  /* padding: 3px; */
-  /* margin-left: 10px; */
   width: 175px;
   height: 40px;
-  /* background-color: #ffffff45; */
-
-  /* z-index: 1; */
 `;
 
 export const NavigateList = styled.nav`
-  /* margin-left: 20px; */
-  /* display: flex; */
-  /* justify-content: end; */
-  /* z-index: 1; */
-
-  /* font-size: 1.3em; */
   & .active {
-    /* color: #56e6d5; */
-
     text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #56e6d5,
       0 0 30px #56e6d5, 0 0 40px #56e6d5, 0 0 55px #56e6d5, 0 0 75px #56e6d5;
   }

@@ -5,6 +5,4 @@ export const Background = styled.div`
   background-color: rgb(37, 38, 46);
 `;
 
-export const Container = styled.div`
-  /* padding: 100px 40px 0 40px; */
-`;
+export const Container = styled.div``;

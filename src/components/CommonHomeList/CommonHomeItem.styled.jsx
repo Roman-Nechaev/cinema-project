@@ -22,8 +22,6 @@ export const LinkSt = styled(Link)`
 
   :hover,
   :focus {
-    /* background-color: #00619a;
-    box-shadow: 0px 6px 22px 3px rgba(0, 208, 255, 0.73); */
     transform: scale(1.03);
   }
 `;

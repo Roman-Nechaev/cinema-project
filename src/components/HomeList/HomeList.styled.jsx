@@ -6,20 +6,45 @@ export const Wrapper = styled.div`
   overflow: hidden;
 `;
 
-export const WrapperArrow = styled.div`
-  top: -205px;
-  left: 40%;
-  position: relative;
-`;
-
 export const WrapperList = styled.ul`
   display: flex;
 
   margin: 16px 0;
   overflow-x: scroll;
-  height: 320px;
 
   margin-left: 50px;
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+
+  :after {
+    content: '›';
+    position: absolute;
+    width: 10px;
+
+    font-size: 36px;
+
+    right: 0;
+    opacity: ${props => (props.props >= 3150 ? '0' : '1')};
+    margin-right: 15px;
+
+    margin-top: 95px;
+    color: #d8d8d8;
+    transition-property: background-color;
+    transition-duration: 3s;
+  }
+  ::before {
+    content: '‹';
+    position: absolute;
+
+    font-size: 36px;
+
+    left: 65px;
+    opacity: ${props => (props.props >= 50 ? '1' : '0')};
+    margin-top: 95px;
+    color: #d8d8d8;
+  }
 `;
 
 export const LinkMore = styled(Link)`

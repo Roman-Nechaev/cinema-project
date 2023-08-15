@@ -11,7 +11,6 @@ export const WrapperMenu = styled.div`
   background-color: #000000;
 
   background-size: cover;
-
   z-index: 10;
 `;
 

@@ -6,3 +6,5 @@ export const checkAvatarCast = img => {
   }
   return `https://image.tmdb.org/t/p/w500${img}`;
 };
+
+export default checkAvatarCast;

@@ -11,6 +11,9 @@ import {
   setFilmsID,
 } from '../../redux/savedFilmsId/savedFilmsIdSlice';
 
+import { TrailerMovieModal } from '../TrailerMovieModal/TrailerMovieModal';
+import { useToggle } from '../../hooks/useToggle';
+
 import 'react-circular-progressbar/dist/styles.css';
 import {
   ListItem,
@@ -26,20 +29,19 @@ import {
   WrapperProgressbar,
   PlayIcon,
 } from './CommonMovieItem.styled';
-import { TrailerMovieModal } from '../TrailerMovieModal/TrailerMovieModal';
-import { useToggle } from '../../hooks/useToggle';
 
 export const CommonMovieItem = moviesItem => {
   const { id, title, poster_path, overview, release_date, vote_average } =
     moviesItem;
+
   const voteAverage = Math.ceil(vote_average * 10);
   const savedFilmsId = useSelector(selectFilmsIdValue);
-  const dispatch = useDispatch();
   const [isFollowing, setIsFollowing] = useState(false);
+  const { isOpen, toggle } = useToggle();
+
   const location = useLocation();
   const isWide = useMedia('(min-width: 768px)');
-
-  const { isOpen, toggle } = useToggle();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setIsFollowing(savedFilmsId.find(item => item.id === id));

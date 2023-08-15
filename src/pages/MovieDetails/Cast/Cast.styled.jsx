@@ -40,6 +40,10 @@ export const Ul = styled.ul`
     margin-inline-end: 10px;
     padding-inline-start: 10px;
   }
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 `;
 
 export const LiCard = styled.li`
@@ -48,10 +52,10 @@ export const LiCard = styled.li`
   margin-left: 10px;
   margin-right: 4px;
   border: 1px solid rgba(227, 227, 227, 1);
-  /* padding-bottom: 10px; */
+
   border-radius: 8px;
   overflow: hidden;
-  /* min-width: 20%; */
+
   min-width: 140px;
   width: 140px;
 
@@ -78,7 +82,6 @@ export const Character = styled.p`
   text-align: center;
   font-size: 0.9em;
   color: #000000;
-  /* padding-left: 8px; */
 `;
 
 export const LinkClose = styled(Link)`

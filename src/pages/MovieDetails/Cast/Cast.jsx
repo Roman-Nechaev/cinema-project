@@ -1,9 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRequestCast } from '../../../redux/requestCast/operations';
 import { useParams } from 'react-router-dom';
+
+import { fetchRequestCast } from '../../../redux/requestCast/operations';
 import { selectMoviesCast } from '../../../redux/requestCast/selector';
 import { checkAvatarCast } from '../../../utils/checkAvatarCast';
+
 import { CastScrolled, Character, Img, LiCard, Name, Ul } from './Cast.styled';
 
 export const Cast = () => {

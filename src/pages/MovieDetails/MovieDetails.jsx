@@ -3,15 +3,23 @@ import { useEffect, useRef, useState, Suspense } from 'react';
 import { useLocation, useParams, Outlet } from 'react-router-dom';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import { useTranslation } from 'react-i18next';
+import { RiArrowGoBackFill } from 'react-icons/ri';
+import { Transition } from 'react-transition-group';
 
 import { selectMoviesDetails } from '../../redux/movieDetails/selector';
-
 import { fetchDetailsMovie } from '../../redux/movieDetails/operations';
-import checkPoster from '../../utils/checkPoster';
-import { RiArrowGoBackFill } from 'react-icons/ri';
+import {
+  selectFilmsIdValue,
+  setFilmsID,
+} from '../../redux/savedFilmsId/savedFilmsIdSlice';
 
-import convertGenres from '../../utils/convertGenres';
+import { useToggle } from '../../hooks/useToggle';
+import scrollToTop from '../../utils/scrollToTop';
+import checkBackdropImage from '../../utils/checkBackdropImage';
 
+import { checkPoster, convertGenres } from '../../utils';
+
+import 'react-circular-progressbar/dist/styles.css';
 import {
   BgGradient,
   Bookmark,
@@ -33,18 +41,6 @@ import {
   PlayIcon,
   CastIcon,
 } from './MovieDetails.styled';
-
-import {
-  selectFilmsIdValue,
-  setFilmsID,
-} from '../../redux/savedFilmsId/savedFilmsIdSlice';
-
-import 'react-circular-progressbar/dist/styles.css';
-
-import { useToggle } from '../../hooks/useToggle';
-import { Transition } from 'react-transition-group';
-import scrollToTop from '../../utils/scrollToTop';
-import checkBackdropImage from '../../utils/checkBackdropImage';
 
 export const MovieDetails = () => {
   const dispatch = useDispatch();
@@ -131,7 +127,7 @@ export const MovieDetails = () => {
                     root: {
                       width: '60px',
                       height: '60px',
-                      // fontFamily: 'cursive',
+
                       backgroundColor: '#09344b',
                       borderRadius: '50%',
                       padding: '3px',

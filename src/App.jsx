@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './components/Layout/Layout';
 
@@ -8,7 +7,6 @@ import { Favorites } from './pages/Favorites/Favorites';
 import { MovieDetails } from './pages/MovieDetails/MovieDetails';
 import { PopularMoviesPages } from './pages/PopularMovies/PopularMoviesPages';
 
-import './App.css';
 import { Cast } from './pages/MovieDetails/Cast/Cast';
 import { Reviews } from './pages/MovieDetails/Reviews/Reviews';
 import { TrailerMovie } from './components/TrailerMovieModal/TrailerMovie';

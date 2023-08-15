@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { createPortal } from 'react-dom';
+import { useLocation } from 'react-router-dom';
 import YouTube from 'react-youtube';
-
+import { useTranslation } from 'react-i18next';
 import { useMedia } from 'react-use';
 
-import { BackDrop, CloseIcon, NoTrailer } from './TrailerMovieModal.styled';
-import { useLocation } from 'react-router-dom';
 import { fetchMovieVideos } from '../../redux/movieVideos/operations';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectMoviesVideos } from '../../redux/movieVideos/selector';
-import { useTranslation } from 'react-i18next';
+
+import { BackDrop, CloseIcon, NoTrailer } from './TrailerMovieModal.styled';
 
 const modalRoot = document.querySelector('#trailer-root');
 

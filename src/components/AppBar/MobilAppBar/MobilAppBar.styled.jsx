@@ -1,5 +1,5 @@
-// import styled from '@emotion/styled';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 import { HiOutlineMenu, HiSearch, HiUser } from 'react-icons/hi';
 
@@ -9,7 +9,6 @@ import {
   MdOutlineBookmarkBorder,
   MdManageAccounts,
 } from 'react-icons/md';
-import { NavLink } from 'react-router-dom';
 
 export const ImgBg = styled.img`
   position: absolute;
@@ -41,13 +40,11 @@ export const UserIcon = styled(HiUser)`
 
 export const LogoImg = styled.img`
   padding: 3px;
-  /* margin-left: 10px; */
+
   width: 40px;
   height: 40px;
   background-color: #ffffff45;
   border-radius: 50%;
-
-  /* z-index: 1; */
 `;
 
 export const ManageSearch = styled(MdManageSearch)`
@@ -79,12 +76,9 @@ export const AccountsIcon = styled(MdManageAccounts)`
 `;
 
 export const NavigateList = styled.nav`
-  /* margin-left: 20px; */
-  /* margin: 0 auto; */
   display: flex;
   justify-content: space-around;
-  /* align-items: center; */
-  /* z-index: 1; */
+
   transition: all 0.5s;
   & .active {
     color: #56e6d5;
@@ -92,7 +86,7 @@ export const NavigateList = styled.nav`
     & svg {
       -shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #56e6d5,
         0 0 30px #56e6d5, 0 0 40px #56e6d5, 0 0 55px #56e6d5, 0 0 75px #56e6d5;
-      /* fill: #ff0000; */
+
       color: #56e6d5;
     }
   }
@@ -100,7 +94,6 @@ export const NavigateList = styled.nav`
 
 export const NavLinks = styled(NavLink)`
   color: #ffffff;
-  /* margin-left: 10px; */
 
   :hover {
     color: #56e6d5;

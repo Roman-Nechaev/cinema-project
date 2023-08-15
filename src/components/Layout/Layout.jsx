@@ -1,6 +1,7 @@
-import { AppBar } from '../AppBar/AppBar';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+
+import { AppBar } from '../AppBar/AppBar';
 import { BtnLocales } from '../BtnLocales/BtnLocales';
 
 import { Background, Container } from './Layout.styled';
@@ -18,7 +19,6 @@ export const Layout = () => {
         </Container>
         <BtnLocales />
       </main>
-      <footer>{/* <h2>Footer</h2> */}</footer>
     </Background>
   );
 };

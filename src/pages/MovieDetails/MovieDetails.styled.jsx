@@ -93,7 +93,7 @@ export const WrapperInfo = styled.div`
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(2px);
   border-radius: 20px 20px 0 0;
-  /* z-index: 99; */
+
   @media screen and (min-width: 768px) {
     background: rgba(255, 255, 255, 0);
     position: relative;
@@ -132,7 +132,6 @@ export const Overview = styled.p`
   margin-top: 10px;
   text-shadow: 1px 0 1px #000, 0 1px 1px #000, -1px 0 1px #000, 0 -1px 1px #000;
   @media screen and (min-width: 768px) {
-    /* position: fixed; */
     bottom: 0;
   }
 `;
@@ -163,9 +162,6 @@ export const LinkBack = styled(Link)`
 `;
 
 export const WrapperBookmark = styled.div`
-  /* bottom: 110px; */
-  /* left: 580px; */
-
   position: absolute;
 
   right: 0;
@@ -174,8 +170,6 @@ export const WrapperBookmark = styled.div`
   cursor: pointer;
 
   @media screen and (min-width: 768px) {
-    /* left: -50px; */
-    /* padding: 20px; */
     top: 0;
     margin-right: 50px;
   }
@@ -252,8 +246,6 @@ export const ContainerVote = styled.div`
   @media screen and (min-width: 768px) {
     position: relative;
     top: 90%;
-    /* left: 0; */
-    /* bottom: -230px; */
   }
 `;
 

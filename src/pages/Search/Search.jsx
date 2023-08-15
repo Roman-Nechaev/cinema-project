@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { Formik } from 'formik';
 import Pagination from 'rc-pagination';
+import { useTranslation } from 'react-i18next';
 
 import { MoviesSearchList } from '../../components/MoviesSearchList/MoviesSearchList';
 import { fetchSearchMovie } from '../../redux/movieSearch/operations';
@@ -13,6 +14,9 @@ import {
   selectSearchIsLoading,
 } from '../../redux/movieSearch/selector';
 
+import { scrollToTop } from '../../utils';
+import { LoaderSpinner } from '../../components/LoaderSpinner/LoaderSpinner';
+
 import {
   Button,
   ContainerForm,
@@ -21,9 +25,6 @@ import {
   Wrapper,
   SearchIcon,
 } from './Search.styled';
-import scrollToTop from '../../utils/scrollToTop';
-import { useTranslation } from 'react-i18next';
-import { LoaderSpinner } from '../../components/LoaderSpinner/LoaderSpinner';
 
 export const Search = () => {
   const dispatch = useDispatch();

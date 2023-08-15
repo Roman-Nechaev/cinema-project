@@ -13,7 +13,6 @@ import {
 } from './MobilAppBar.styled';
 
 export const MobilAppBar = () => {
-  // const { isOpen, open, close } = useToggle();
   return (
     <>
       <NavigateList>

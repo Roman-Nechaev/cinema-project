@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+
 import { WrapperMenu, MenuClose } from './MobilMenu.styles';
 
 export const MobilMenu = ({ onClose }) => (
